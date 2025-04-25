@@ -4,6 +4,7 @@ import 'package:music_minds/repository/backend/auth_backend.dart';
 import 'package:music_minds/src/components.dart';
 import 'package:music_minds/src/screens.dart';
 import 'package:music_minds/src/utils.dart';
+import 'package:music_minds/view/components/custom_password/validate_field.dart';
 import 'package:music_minds/view_model/auth/auth_view_model.dart';
 import 'package:music_minds/view_model/auth/registration_view_model.dart';
 
@@ -136,6 +137,31 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
                 Validators().validateEmail(value),
             onChanged: (value) =>
                 registrationProvider.updateRegisterButtonState(),
+          ),
+          PasswordValidatedFields(
+            textEditingController:
+            registrationProvider.registerPwdController,
+
+            obscureInput: registrationProvider.obscurePasswordText,
+            confirmPasswordWidget: CustomTextField(
+              fieldLabel: TTexts.confirmPassword,
+              hint: TTexts.confirmPassword,
+              controller:
+              registrationProvider.registerConfirmPwdController,
+              password: true,
+              validators: (value) =>
+                  Validators().validateConfirmPassword(
+                    registrationProvider.registerPwdController.text,
+                    registrationProvider
+                        .registerConfirmPwdController.text,
+                  ),
+              obscureInput:
+              registrationProvider.obscureConfirmPwdText,
+              onObscureText:
+              registrationProvider.toggleConfirmPwdVisibility,
+            ),
+            onObscureText: registrationProvider.togglePwdVisibility,
+            fieldLabel: TTexts.password,
           ),
 
         ],

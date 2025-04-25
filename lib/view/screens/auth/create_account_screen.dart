@@ -4,7 +4,7 @@ import 'package:music_minds/repository/backend/auth_backend.dart';
 import 'package:music_minds/src/components.dart';
 import 'package:music_minds/src/screens.dart';
 import 'package:music_minds/src/utils.dart';
-import 'package:music_minds/view_model/auth_view_model.dart';
+import 'package:music_minds/view_model/auth/auth_view_model.dart';
 
 class CreateAccountScreen extends ConsumerStatefulWidget {
   const CreateAccountScreen({super.key});
@@ -206,23 +206,7 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
       text: 'Create account',
       buttonState: provider.buttonRegisterState!.buttonState,
       onPressed: () async {
-        // await authService
-        //     .signUp(
-        //   email: '',
-        //   password: '',
-        //   firstName: '',
-        //   lastName:'',
-        //   userName: '',
-        //   role: 'user',
-        //   profileType: 'Fan',
-        //   profileBio: 'string',
-        //   profileCategory: 'string',
-        //   gender: 'male',
-        //   genres: 'string',
-        // );
-        await provider.userRegistration(context);
-        // AuthBackend().signInAdmin(email: 'vicemmanuel7@gmail.com', password: 'VicProgrammer123@');
-        // navigatePush(context, VerifyEmailScreen());
+
       },
     );
   }
@@ -236,7 +220,7 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 14.spMin,
-                  fontFamily: 'Campton',
+                  fontFamily: TTexts.campTonFont,
                   fontWeight: FontWeight.w500),
               children: <TextSpan>[
             TextSpan(
@@ -270,7 +254,7 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 10.spMin,
-                      fontFamily: 'Campton',
+                      fontFamily: TTexts.campTonFont,
                       fontWeight: FontWeight.w400),
                   children: <TextSpan>[
                 TextSpan(

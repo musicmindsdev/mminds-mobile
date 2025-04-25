@@ -1,10 +1,7 @@
-import 'dart:convert';
 import 'dart:developer';
 
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:music_minds/model/response/registration_successful_response_model.dart';
-import 'package:music_minds/src/config.dart';
 import 'package:music_minds/src/models.dart';
 import 'package:music_minds/src/repository.dart';
 import 'package:music_minds/src/screens.dart';
@@ -204,7 +201,7 @@ class AuthViewModel extends ChangeNotifier {
       );
       notifyListeners();
       await authService
-          .signInAdmin(
+          .signInUser(
         email: _emailController.text,
         password: _passwordController.text,
       )
@@ -262,85 +259,6 @@ class AuthViewModel extends ChangeNotifier {
     }
   }
 
-  Future<void> userRegistration(BuildContext context) async {
-    try {
-      _buttonRegisterState = CustomButtonState(
-        buttonState: ButtonState.loading,
-        text: TTexts.login,
-      );
-      notifyListeners();
-      await authService
-          .signUp(
-        email: _emailSignUpController.text,
-        password: _passwordRegisterController.text,
-        firstName: _firstNameController.text,
-        lastName: _lastNameController.text,
-        userName: _userNameController.text,
-        role: 'user',
-        profileType: 'Fan',
-        profileBio: 'string',
-        profileCategory: 'string',
-        gender: 'male',
-        genres: 'string',
-      )
-          .then((value) async {
-        if (value != null) {
-          // print(value['status'].toString());
-          //   final decodeResponse = jsonDecode(value.toString());
-          final decodeResponse = value;
-          if (value['status'].toString() == 'success') {
-            logger.wtf(value.toString());
-            // var decodeResponse = jsonDecode(value);
-
-            ResponseData.registrationSuccessfulResponseModel =
-                RegistrationSuccessfulResponseModel.fromJson(
-                    decodeResponse as Map<String, dynamic>);
-            // DummyData.email =ResponseData.registrationSuccessfulResponseModel!.data!.email.toString();
-            DummyData.email = _emailSignUpController.text;
-            // DummyData.password =
-            //     passwordRegisterController.text;
-            DummyData.password = passwordRegisterController.text;
-            await saveUserEmail(DummyData.email);
-            await getUserEmail();
-
-            await saveUserPassword(DummyData.password);
-            await getUserPassword();
-            _buttonRegisterState = CustomButtonState(
-              buttonState: ButtonState.idle,
-              text: TTexts.login,
-            );
-
-            showToast(
-              msg: value['message'].toString(),
-              isError: false,
-            );
-            await Future.delayed(Duration(milliseconds: 1000));
-            await navigateReplace(context, const VerifyEmailScreen());
-          } else if (value['status'].toString() == 'error') {
-            showToast(
-              msg: value['message'].toString(),
-              isError: true,
-            );
-            notifyListeners();
-          }
-        }
-      }).whenComplete(() {
-        _buttonRegisterState = CustomButtonState(
-          buttonState: ButtonState.idle,
-          text: 'getStarted',
-        );
-        notifyListeners();
-      });
-    } catch (e, s) {
-      showToast(
-        msg: 'Something went wrong',
-        isError: true,
-      );
-      logger
-        ..i('CHECK ERROR LOGS')
-        ..e(s);
-    }
-  }
 
   Future<void> userConfirmAccount(BuildContext context) async {
     try {

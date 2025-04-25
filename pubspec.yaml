@@ -1,41 +1,42 @@
 name: music_minds
 description: "A new Flutter project."
 publish_to: 'none'
-
 version: 1.0.0+1
 
 environment:
   sdk: ^3.7.2
+
+#--------------- PACKAGES STARTS HERE ------------------#
 dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
-  bot_toast: ^4.0.4
-  flutter_svg: ^2.0.4
-  cached_network_image: ^3.2.3
-  flutter_riverpod: ^2.3.2
-  logger: ^2.0.2+1
-  dio: ^5.2.0+1
-  shared_preferences: ^2.1.2
+  bot_toast: ^4.1.3
+  flutter_svg: ^2.1.0
+  cached_network_image: ^3.4.1
+  flutter_riverpod: ^2.6.1
+  logger: ^2.5.0
+  dio: ^5.8.0+1
+  shared_preferences: ^2.5.3
   intl: ^0.19.0
-  image_picker: ^0.8.4+3
-  flutter_screenutil: ^5.6.0
-  go_router: ^14.3.0
-
-
+  image_picker: ^1.1.2
+  flutter_screenutil: ^5.9.3
+  go_router: ^15.1.1
+  flutter_secure_storage: ^9.2.4
   percent_indicator: ^4.2.3
+  pin_code_fields: ^8.0.1
 
-  pin_code_fields: any
   flutter_localizations:
     sdk: flutter
     version: any
+#--------------- PACKAGES END HERE ------------------#
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
   flutter_lints: ^5.0.0
-  flutter_launcher_icons: ^0.14.3
+#  flutter_launcher_icons: ^0.14.3
 #  change_app_package_name: ^1.5.0
 #  flutter_app_name: ^0.1.1
 
@@ -52,7 +53,7 @@ dev_dependencies:
 flutter:
 
   uses-material-design: true
-
+  #--------------- LOCAL ASSETS STARTS HERE ------------------#
   assets:
     - assets/
     - assets/images/
@@ -64,7 +65,9 @@ flutter:
     - assets/musicians.json
     - assets/services.json
     - assets/bookings.json
+  #--------------- LOCAL ASSETS ENDS HERE ------------------#
 
+  #--------------- CUSTOM FONTS STARTS HERE ------------------#
   fonts:
     - family: Campton
       fonts:
@@ -94,3 +97,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+  #--------------- CUSTOM FONTS ENDS HERE ------------------#
+

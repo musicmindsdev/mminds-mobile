@@ -85,7 +85,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen>
         type: BottomNavigationBarType.fixed,
         selectedLabelStyle: TextStyle(
           fontSize: 12.spMin,
-          fontFamily: 'Campton',
+         fontFamily: TTexts.campTonFont,
           fontWeight: FontWeight.w600,
         ),
         unselectedFontSize: 12.spMin,

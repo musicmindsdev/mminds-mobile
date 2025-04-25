@@ -516,7 +516,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       style: theme.textTheme.bodyMedium!.copyWith(
                         color: AppColors.kPrimaryColor,
                         fontWeight: FontWeight.w400,
-                        fontFamily: 'Campton',
+                       fontFamily: TTexts.campTonFont,
                         fontSize: 14.spMin,
                       ),
                       decoration: InputDecoration(
@@ -537,7 +537,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         hintText: "Search",
                         hintStyle: theme.textTheme.bodyMedium!.copyWith(
                           color: AppColors.KNeutralFormFieldText,
-                          fontFamily: 'Campton',
+                         fontFamily: TTexts.campTonFont,
                           fontSize: 14.spMin,
                         ),
                         border: OutlineInputBorder(
@@ -725,14 +725,14 @@ class DefaultMaxMinButton extends StatelessWidget {
         style: theme.textTheme.bodyMedium!.copyWith(
           color: AppColors.kPrimaryColor,
           fontWeight: FontWeight.w400,
-          fontFamily: 'Campton',
+         fontFamily: TTexts.campTonFont,
           fontSize: 14.spMin,
         ),
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle: theme.textTheme.bodyMedium!.copyWith(
             color: AppColors.KNeutralFormFieldText,
-            fontFamily: 'Campton',
+           fontFamily: TTexts.campTonFont,
             fontSize: 14.spMin,
           ),
         ),

@@ -24,8 +24,8 @@ class CustomTabBar extends StatelessWidget {
           TabBar(
             tabs: tabs,
             labelColor: AppColors.KBlue,
-            labelStyle: TextStyle(fontSize: 14.spMin, fontFamily: 'Campton',fontWeight: FontWeight.w600),
-            unselectedLabelStyle: TextStyle(fontSize: 14.0.spMin, fontFamily: 'Campton', fontWeight: FontWeight.w500),
+            labelStyle: TextStyle(fontSize: 14.spMin,fontFamily: TTexts.campTonFont,fontWeight: FontWeight.w600),
+            unselectedLabelStyle: TextStyle(fontSize: 14.0.spMin,fontFamily: TTexts.campTonFont, fontWeight: FontWeight.w500),
             unselectedLabelColor: AppColors.KNeutralFormFieldText, // Color when not s
             indicatorColor: AppColors.KBlue,
 

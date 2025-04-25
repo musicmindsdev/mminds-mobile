@@ -5,7 +5,7 @@ import 'package:music_minds/src/screens.dart';
 import 'package:music_minds/src/utils.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:music_minds/view/screens/dashboard/dashboard_screen.dart';
-import 'package:music_minds/view_model/auth_view_model.dart';
+import 'package:music_minds/view_model/auth/auth_view_model.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -152,7 +152,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 14.spMin,
-                  fontFamily: 'Campton',
+                  fontFamily: TTexts.campTonFont,
                   fontWeight: FontWeight.w500),
               children: <TextSpan>[
             TextSpan(

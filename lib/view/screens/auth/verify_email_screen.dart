@@ -8,10 +8,15 @@ import 'package:music_minds/src/utils.dart';
 import 'package:music_minds/view/screens/auth/email_verified_success_screen.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
-import '../../../view_model/auth_view_model.dart';
+import '../../../view_model/auth/auth_view_model.dart';
 
 class VerifyEmailScreen extends ConsumerStatefulWidget {
-  const VerifyEmailScreen({super.key});
+  final String? email;
+  final String? pwd;
+  final String? title;
+  final String? subTitle;
+  final bool? isForgotPassword;
+  const VerifyEmailScreen( {super.key,this.email, this.pwd, this.title, this.subTitle, this.isForgotPassword,});
 
   @override
   ConsumerState<VerifyEmailScreen> createState() => _VerifyEmailScreenState();
@@ -171,7 +176,7 @@ class _VerifyEmailScreenState extends ConsumerState<VerifyEmailScreen> {
       // hintCharacter: '-',
       hintStyle: const TextStyle(
         color: AppColors.kAshBlue,
-        fontFamily: 'Campton',
+        fontFamily: TTexts.campTonFont,
       ),
 
       pinTheme: PinTheme(

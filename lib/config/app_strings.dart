@@ -11,6 +11,7 @@ class TTexts {
   static const enterEmailAddress = 'enter email address';
   static const enterEmailLinked = 'Enter email linked to your account';
   static const cellPhone = 'Cell Phone';
+  static const createAccount = 'Create Account';
   static const enterCellPhone = 'enter cell phone';
   static const password = 'Password';
   static const enterPwd = 'Enter your password';

@@ -842,7 +842,7 @@ class DefaultTextField extends StatelessWidget {
         style: theme.textTheme.bodyMedium!.copyWith(
           color: AppColors.kPrimaryColor,
           fontWeight: FontWeight.w400,
-          fontFamily: 'Campton',
+         fontFamily: TTexts.campTonFont,
           fontSize: 14.spMin,
         ),
         decoration: InputDecoration(
@@ -869,7 +869,7 @@ class DefaultTextField extends StatelessWidget {
           hintText: hintText,
           hintStyle: theme.textTheme.bodyMedium!.copyWith(
             color: AppColors.KNeutralFormFieldText,
-            fontFamily: 'Campton',
+           fontFamily: TTexts.campTonFont,
             fontSize: 14.spMin,
           ),
         ),

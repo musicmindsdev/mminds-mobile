@@ -173,7 +173,7 @@ class _PostFeedScreenState extends State<PostFeedScreen> {
           hintStyle: TextStyle(
               fontSize: 15.spMin,
               fontWeight: FontWeight.w500,
-              fontFamily: 'Campton',
+             fontFamily: TTexts.campTonFont,
               color: AppColors.KUserProfileNeutral),
         ),
       ),

@@ -142,7 +142,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               style: theme.textTheme.bodyMedium!.copyWith(
                 color: AppColors.kPrimaryColor,
                 fontWeight: FontWeight.w400,
-                fontFamily: 'Campton',
+               fontFamily: TTexts.campTonFont,
                 fontSize: 14.spMin,
               ),
               keyboardType: widget.keyboardType,
@@ -168,7 +168,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 hintText: widget.hint,
                 hintStyle: theme.textTheme.bodyMedium!.copyWith(
                   color: AppColors.KNeutralFormFieldText,
-                  fontFamily: 'Campton',
+                 fontFamily: TTexts.campTonFont,
                   fontSize: 14.spMin,
                 ),
                 prefixIcon: widget.prefixIcon,
@@ -256,7 +256,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     style: theme.textTheme.labelLarge!.copyWith(
                       color: AppColors.kAshBlue,
                       fontWeight: FontWeight.bold,
-                      fontFamily: 'Campton',
+                     fontFamily: TTexts.campTonFont,
                       fontSize: 12.spMin,
                     ),
                   ),

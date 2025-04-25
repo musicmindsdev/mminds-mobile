@@ -76,7 +76,7 @@ class _HomeFeedScreenState extends State<HomeFeedScreen> {
             'Had the perfect time today at North carolina. Thank you for coming out! Myself and the team appreciates your love and turnup. See you next week New York!',
             style: TextStyle(
                 fontSize: 12.spMin,
-                fontFamily: 'Campton',
+               fontFamily: TTexts.campTonFont,
                 fontWeight: FontWeight.w400,
                 color: Colors.white),
             // fontWeight: FontWeight.w400,

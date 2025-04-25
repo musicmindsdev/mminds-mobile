@@ -4,7 +4,7 @@ import 'package:music_minds/config/app_assets.dart';
 import 'package:music_minds/src/providers.dart';
 import 'package:music_minds/config/app_colors.dart';
 import 'package:music_minds/src/screens.dart';
-import 'package:music_minds/view_model/auth_view_model.dart';
+import 'package:music_minds/view_model/auth/auth_view_model.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

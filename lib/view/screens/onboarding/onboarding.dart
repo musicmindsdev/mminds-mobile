@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music_minds/model/local/onboarding_items_model.dart';
+import 'package:music_minds/routing/app_routing.dart';
 import 'package:music_minds/src/components.dart';
 import 'package:music_minds/utils/navigators.dart';
 import 'package:music_minds/view/components/gradient_outlined_button.dart';
@@ -47,8 +48,8 @@ class _OnboardingTestScreenState extends State<OnboardingTestScreen> {
         body: Stack(
       children: [
         PageView.builder(
-          
-          physics: const BouncingScrollPhysics(),
+
+          physics: const AlwaysScrollableScrollPhysics(),
           controller: pageController,
           onPageChanged: (int page) {
             setState(() {
@@ -100,7 +101,8 @@ class _OnboardingTestScreenState extends State<OnboardingTestScreen> {
                                             text: 'Sign up',
                                             height: 44.h,
                                             onPressed: () {
-                                              navigateReplace(context, const CreateAccountScreen());
+                                              // navigateReplace(context, const CreateAccountScreen());
+                                              navigateGoRouterPush(context, AppRouteNames.registrationScreen);
                                             }),
                                         GradientOutlineButton(
                                             strokeWidth: 1.w,
@@ -130,7 +132,7 @@ class _OnboardingTestScreenState extends State<OnboardingTestScreen> {
                                               ),
                                             ),
                                             onPressed: () {
-                                              navigateReplace(context, const LoginScreen());
+                                              navigateGoRouterPush(context, AppRouteNames.loginScreen);
                                             } )
                                       ],
                                     ),

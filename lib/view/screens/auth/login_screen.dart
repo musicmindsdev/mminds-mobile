@@ -142,12 +142,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     return DefaultButtonMain(
       text: TTexts.login,
       buttonState: authProvider.buttonLoginState!.buttonState,
-      onPressed: () async {
+      onPressed: ()  {
         if (loginFormKey.currentState!.validate()) {
           loginFormKey.currentState!.save();
-          navigatePush(context,  DashboardScreen());
+          authProvider.userLogin(context);
         }
-        // await authProvider.userLogin(context);
       },
     );
   }

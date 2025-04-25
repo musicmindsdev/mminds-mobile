@@ -224,7 +224,7 @@ class AuthViewModel extends ChangeNotifier {
                   DummyData.password = _loginPwdController.text;
                   await saveUserEmail(_loginEmailController.text);
                   await getUserEmail();
-                  await saveAccessToken(value['data']['token'].toString());
+                  await saveAccessToken(value['data']['access_token'].toString());
                   await getAccessToken();
                   await saveAppTme();
                   await saveUserPassword(_loginPwdController.text);
@@ -395,7 +395,7 @@ class AuthViewModel extends ChangeNotifier {
                   DummyData.password = _loginPwdController.text;
                   await saveUserEmail(_loginEmailController.text);
                   await getUserEmail();
-                  await saveAccessToken(value['data']['token'].toString());
+                  await saveAccessToken(value['data']['access_token'].toString());
                   await getAccessToken();
                   await saveAppTme();
                   await saveUserPassword(_loginPwdController.text);

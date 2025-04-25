@@ -9,7 +9,7 @@ class ApiConstants {
   final String host = apiUrlHost!;
   final int receiveTimeout = 3000;
   final int sendTimeout = 2000;
-  final String version = '/v1';
+  final String version = 'v1';
   final api = 'api';
   final authPath = 'auth';
   final userPath = 'users';

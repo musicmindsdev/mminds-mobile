@@ -1,0 +1,190 @@
+{
+  "useraccountdetails": [
+    {
+      "userDetails": "Hip hop",
+      "isSelected": false
+    
+
+    },
+    {
+      "userDetails": "Blues",
+      "isSelected": false
+    
+
+    },
+    {
+      "userDetails": "Americana",
+      "isSelected": false
+    
+
+    },
+    {
+      "userDetails": "Country",
+      "isSelected": false
+    
+
+    },
+    {
+      "userDetails": "Christian/Gospel",
+      "isSelected": false
+    
+
+    },
+    {
+      "userDetails": "Jazz",
+      "isSelected": false
+    
+
+    },
+    {
+      "userDetails": "Dance & EDM",
+      "isSelected": false
+    
+
+    },
+    {
+      "userDetails": "Disco",
+      "isSelected": false
+    
+
+    },
+    {
+      "userDetails": "Folk",
+      "isSelected": false
+    
+
+    },
+    {
+      "userDetails": "Drum & Bass",
+      "isSelected": false
+    
+
+    },
+    {
+      "userDetails": "Latin",
+      "isSelected": false
+    
+
+    },
+    {
+      "userDetails": "Piano",
+      "isSelected": false
+    
+
+    },
+    {
+      "userDetails": "Hip hop",
+      "isSelected": false
+    
+
+    },
+    {
+      "userDetails": "Blues",
+      "isSelected": false
+    
+
+    },
+    {
+      "userDetails":  "Americana",
+      "isSelected": false
+    
+
+    },
+    {
+      "userDetails": "Country",
+      "isSelected": false
+    
+
+    },
+    {
+      "userDetails": "Christian/Gospel",
+      "isSelected": false
+    
+
+    },
+    {
+      "userDetails": "Jazz",
+      "isSelected": false
+    
+
+    },
+    {
+      "userDetails": "Dance & EDM",
+      "isSelected": false
+    
+
+    },
+    {
+      "userDetails": "Disco",
+      "isSelected": false
+    
+
+    },
+    {
+      "userDetails": "Folk",
+      "isSelected": false
+    
+
+    },
+    {
+      "userDetails": "Drum & Bass",
+      "isSelected": false
+    
+
+    },
+    {
+      "userDetails": "Latin",
+      "isSelected": false
+    
+
+    },
+    {
+      "userDetails": "Piano",
+      "isSelected": false
+    
+
+    }
+  ],
+  "userprofile": {
+    "artist":[
+      {
+        "userDetails": "Musician",
+      "isSelected": false
+      },
+      {
+        "userDetails": "Producer",
+      "isSelected": false
+      },
+      {
+        "userDetails": "Dancer",
+      "isSelected": false
+      },
+      {
+        "userDetails": "Audio Engineer",
+      "isSelected": false
+      },
+      {
+        "userDetails": "Dj",
+      "isSelected": false
+      },
+      {
+        "userDetails": "Songwriter",
+      "isSelected": false
+      },
+      {
+        "userDetails": "Makeup artist",
+      "isSelected": false
+      },
+      {
+        "userDetails": "Video creator",
+      "isSelected": false
+      }
+    ]
+    
+  }
+
+   
+    
+  
+
+}

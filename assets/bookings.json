@@ -1,0 +1,44 @@
+
+{
+  "Bookings":{
+    "Country":[
+  
+      
+         "USA",
+       
+      
+    
+      
+      
+         "Nigeria",
+      
+      
+    
+     "Korea",
+        
+      
+    
+     "Spain",
+        
+      
+    
+      
+       "Japan"
+        
+      
+    
+      ]
+    
+      
+      
+    
+    
+    ,
+    "Location":[
+    {"country":"Nigeria","state and their cities":[{"Rivers State":["Port_HarCourt","Ahoda"]}]},
+    {"country":"USA","state and their cities":[{"Vermont":["Burlington","Montepelier"]},{"Hawaii":["Lahaina","Honolulu"]}]}
+    ]
+    
+  }
+}
+

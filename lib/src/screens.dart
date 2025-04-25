@@ -1,0 +1,13 @@
+export 'package:music_minds/view/screens/auth/login_screen.dart';
+export 'package:music_minds/view/screens/onboarding/splash_screen.dart';
+export 'package:music_minds/view/screens/onboarding/onboarding.dart';
+export 'package:music_minds/view/screens/auth/create_account_screen.dart';
+export 'package:music_minds/view/screens/dashboard/home_screen/home_screen.dart';
+export 'package:music_minds/view/screens/dashboard/bookings_screen/bookings_screen.dart';
+export 'package:music_minds/view/screens/dashboard/message_screen/message_screen.dart';
+export 'package:music_minds/view/screens/dashboard/notification_screen/notification_screen.dart';
+export 'package:flutter_screenutil/flutter_screenutil.dart';
+export  'package:flutter/material.dart';
+export 'package:music_minds/config/app_strings.dart';
+export 'package:music_minds/view/screens/auth/verify_email_screen.dart';
+export  'package:music_minds/view/screens/auth/reset_password_screens/reset_password_screen.dart';

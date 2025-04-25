@@ -1,0 +1,103 @@
+{
+  "Services":[
+    {
+      "serviceType": "All",
+      "isChecked": false
+    
+
+    },
+    {
+      "serviceType": "Musician",
+      "isChecked": false
+    
+
+    },
+    {
+      "serviceType": "Producer",
+      "isChecked": false
+    
+
+    },
+    {
+      "serviceType": "Musician",
+      "isChecked": false
+    
+
+    },
+    {
+      "serviceType": "Audio Engineer",
+      "isChecked":false
+     },
+    {
+      "serviceType":  "Dj", 
+      "isChecked": false
+    
+
+    },
+    {
+      "serviceType": "Songwriter", 
+      "isChecked": false
+    
+
+    },
+    {
+      "serviceType":  "Dancer", 
+      "isChecked": false
+    
+
+    },
+    {
+      "serviceType":  "Vocal Coach",
+      "isChecked": false
+    
+
+    },
+    {
+      "serviceType":"Instrumental Coach",
+      "isChecked": false
+    
+
+    },
+    {
+      "serviceType": "Music Business Coach",
+      "isChecked": false
+    
+
+    },
+    {
+      "serviceType":  "Marketing Agency",
+      "isChecked": false
+    
+
+    },
+    {
+      "serviceType": "Talent Agency",
+      "isChecked": false
+    
+
+    },
+    {
+      "serviceType": "Distribution Agency",
+      "isChecked": false
+    
+
+    }
+    
+  
+  
+]}
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+  

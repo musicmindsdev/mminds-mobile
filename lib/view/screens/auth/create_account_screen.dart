@@ -32,33 +32,21 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               // mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
-                  height: 20.h,
-                ),
+                SizedBox(height: 20.h),
                 headerTexts(),
-                SizedBox(
-                  height: 30.h,
-                ),
+                SizedBox(height: 30.h),
                 formFields(),
-                SizedBox(
-                  height: 12.h,
-                ),
+                SizedBox(height: 12.h),
                 termsAndPolicies(),
-                SizedBox(
-                  height: 50.h,
-                ),
+                SizedBox(height: 50.h),
                 submitButton(),
-                SizedBox(
-                  height: 28.h,
-                ),
+                SizedBox(height: 28.h),
                 alreadyHaveAnAccount(),
               ],
             ),
           ),
         ),
       ),
-
-
     );
   }
 
@@ -68,21 +56,18 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         InkWell(
-            onTap: () {
-              navigateBack(context);
-            },
-            child: const Icon(Icons.arrow_back_ios)),
-        SizedBox(
-          height: 15.h,
+          onTap: () {
+            navigateBack(context);
+          },
+          child: const Icon(Icons.arrow_back_ios),
         ),
+        SizedBox(height: 15.h),
         TextView(
           text: TTexts.createAnAccount,
           fontSize: 28.spMin,
           fontWeight: FontWeight.w600,
         ),
-        SizedBox(
-          height: 6.h,
-        ),
+        SizedBox(height: 6.h),
         TextView(
           text: TTexts.joinTheCommunity,
           fontSize: 14.spMin,
@@ -104,66 +89,57 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
             fieldLabel: '',
             hint: TTexts.firstName,
             controller: registrationProvider.firstNameController,
-            validators: (value) =>
-                Validators().validateName(value),
+            validators: (value) => Validators().validateName(value),
             onChanged: (value) {
               logger.wtf("hello");
-                registrationProvider.updateRegisterButtonState();}
+              registrationProvider.updateRegisterButtonState();
+            },
           ),
           CustomTextField(
             fieldLabel: '',
             hint: TTexts.lastName,
-            validators: (value) =>
-                Validators().validateName(value),
+            validators: (value) => Validators().validateName(value),
             controller: registrationProvider.lastNameController,
-            onChanged: (value) =>
-                registrationProvider.updateRegisterButtonState(),
+            onChanged:
+                (value) => registrationProvider.updateRegisterButtonState(),
           ),
 
           CustomTextField(
             fieldLabel: '',
             hint: TTexts.userName,
             controller: registrationProvider.userNameController,
-            validators: (value) =>
-                Validators().validateEmptyField(value),
-            onChanged: (value) =>
-                registrationProvider.updateRegisterButtonState(),
+            validators: (value) => Validators().validateEmptyField(value),
+            onChanged:
+                (value) => registrationProvider.updateRegisterButtonState(),
           ),
           CustomTextField(
             fieldLabel: '',
             hint: TTexts.emailAddress,
             controller: registrationProvider.registerEmailController,
-            validators: (value) =>
-                Validators().validateEmail(value),
-            onChanged: (value) =>
-                registrationProvider.updateRegisterButtonState(),
+            validators: (value) => Validators().validateEmail(value),
+            onChanged:
+                (value) => registrationProvider.updateRegisterButtonState(),
           ),
           PasswordValidatedFields(
-            textEditingController:
-            registrationProvider.registerPwdController,
+            textEditingController: registrationProvider.registerPwdController,
 
             obscureInput: registrationProvider.obscurePasswordText,
             confirmPasswordWidget: CustomTextField(
               fieldLabel: TTexts.confirmPassword,
               hint: TTexts.confirmPassword,
-              controller:
-              registrationProvider.registerConfirmPwdController,
+              controller: registrationProvider.registerConfirmPwdController,
               password: true,
-              validators: (value) =>
-                  Validators().validateConfirmPassword(
+              validators:
+                  (value) => Validators().validateConfirmPassword(
                     registrationProvider.registerPwdController.text,
-                    registrationProvider
-                        .registerConfirmPwdController.text,
+                    registrationProvider.registerConfirmPwdController.text,
                   ),
-              obscureInput:
-              registrationProvider.obscureConfirmPwdText,
-              onObscureText:
-              registrationProvider.toggleConfirmPwdVisibility,
+              obscureInput: registrationProvider.obscureConfirmPwdText,
+              onObscureText: registrationProvider.toggleConfirmPwdVisibility,
             ),
             onObscureText: registrationProvider.togglePwdVisibility,
             fieldLabel: TTexts.password,
           ),
-
         ],
       ),
     );
@@ -175,9 +151,7 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
     return DefaultButtonMain(
       text: TTexts.createAccount,
       buttonState: registrationProvider.buttonRegisterState!.buttonState,
-      onPressed: () async {
-
-      },
+      onPressed: () async {},
     );
   }
 
@@ -185,26 +159,35 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
   alreadyHaveAnAccount() {
     return Center(
       child: RichText(
-          text: TextSpan(
-              text: TTexts.haveAnAccount,
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 14.spMin,
-                  fontFamily: TTexts.campTonFont,
-                  fontWeight: FontWeight.w500),
-              children: <TextSpan>[
+        text: TextSpan(
+          text: TTexts.haveAnAccount,
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 14.spMin,
+            fontFamily: TTexts.campTonFont,
+            fontWeight: FontWeight.w500,
+          ),
+          children: <TextSpan>[
             TextSpan(
-                text: TTexts.login,
-                style: TextStyle(
-                    color: AppColors.KBlue,
-                    fontSize: 14.spMin,
-                    fontWeight: FontWeight.w500),
-                recognizer: TapGestureRecognizer()
-                  ..onTap = () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginScreen()))),
-          ])),
+              text: TTexts.login,
+              style: TextStyle(
+                color: AppColors.KBlue,
+                fontSize: 14.spMin,
+                fontWeight: FontWeight.w500,
+              ),
+              recognizer:
+                  TapGestureRecognizer()
+                    ..onTap =
+                        () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LoginScreen(),
+                          ),
+                        ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 
@@ -214,42 +197,43 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         customCheckBox(),
-        SizedBox(
-          width: 8.w,
-        ),
+        SizedBox(width: 8.w),
         Expanded(
           child: RichText(
-              text: TextSpan(
-                  text: TTexts.agreeTo,
+            text: TextSpan(
+              text: TTexts.agreeTo,
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 10.spMin,
+                fontFamily: TTexts.campTonFont,
+                fontWeight: FontWeight.w400,
+              ),
+              children: <TextSpan>[
+                TextSpan(
+                  text: TTexts.termsOfService,
                   style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 10.spMin,
-                      fontFamily: TTexts.campTonFont,
-                      fontWeight: FontWeight.w400),
-                  children: <TextSpan>[
-                TextSpan(
-                    text: TTexts.termsOfService,
-                    style: TextStyle(
-                        decoration: TextDecoration.underline,
-                        color: AppColors.KBlue.withOpacity(0.8),
-                        fontSize: 10.spMin,
-                        fontWeight: FontWeight.w400),
-                    recognizer: TapGestureRecognizer()..onTap = () {}),
-                const TextSpan(
-                  text: TTexts.acknowledgement,
+                    decoration: TextDecoration.underline,
+                    color: AppColors.KBlue.withOpacity(0.8),
+                    fontSize: 10.spMin,
+                    fontWeight: FontWeight.w400,
+                  ),
+                  recognizer: TapGestureRecognizer()..onTap = () {},
                 ),
+                const TextSpan(text: TTexts.acknowledgement),
                 TextSpan(
-                    text: TTexts.privacyPolicy,
-                    style: TextStyle(
-                        decoration: TextDecoration.underline,
-                        color: AppColors.KBlue.withOpacity(0.8),
-                        fontSize: 10.spMin,
-                        fontWeight: FontWeight.w400),
-                    recognizer: TapGestureRecognizer()..onTap = () {}),
-                const TextSpan(
-                  text: ' applies to you.',
+                  text: TTexts.privacyPolicy,
+                  style: TextStyle(
+                    decoration: TextDecoration.underline,
+                    color: AppColors.KBlue.withOpacity(0.8),
+                    fontSize: 10.spMin,
+                    fontWeight: FontWeight.w400,
+                  ),
+                  recognizer: TapGestureRecognizer()..onTap = () {},
                 ),
-              ])),
+                const TextSpan(text: ' applies to you.'),
+              ],
+            ),
+          ),
         ),
       ],
     );
@@ -272,23 +256,22 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
             color: AppColors.KBlue, // Border color
             width: 1.w, // Border width
           ),
-          color: isChecked
-              ? Colors.transparent
-              : Colors.transparent, // Fill color when checked
+          color:
+              isChecked
+                  ? Colors.transparent
+                  : Colors.transparent, // Fill color when checked
         ),
-        child: isChecked
-            ? Center(
-                child: Icon(
-                  Icons.check,
-                  size: 12.0.r,
-                  color: AppColors.KBlue, // Checkmark color
-                ),
-              )
-            : null,
+        child:
+            isChecked
+                ? Center(
+                  child: Icon(
+                    Icons.check,
+                    size: 12.0.r,
+                    color: AppColors.KBlue, // Checkmark color
+                  ),
+                )
+                : null,
       ),
     );
   }
-
-
 }
-

@@ -17,7 +17,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
   @override
   void didChangeDependencies() {
     // ref.watch(authViewModel).getUserEmail();
-    // ref.watch(onboardingViewModel).checkUser(context);
+    ref.watch(onboardingViewModel).checkUser(context);
     // ref.watch(authViewModel).updateButtonState();
     // ref.watch(authViewModel).updateRegisterButtonState();
     super.didChangeDependencies();
@@ -30,8 +30,6 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
     Future.delayed(Duration.zero, () {
       ref.watch(authViewModel).getUserEmail();
       ref.watch(onboardingViewModel).checkUser(context);
-      ref.watch(authViewModel).updateButtonState();
-      ref.watch(authViewModel).updateRegisterButtonState();
     });
   }
 

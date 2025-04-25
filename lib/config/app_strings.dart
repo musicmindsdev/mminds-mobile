@@ -3,15 +3,19 @@ class TTexts {
   static const createAnAccount = 'Create an Account';
   static const createProfile = 'Create profile';
   static const fullName = 'Full Name';
-  static const firstName = 'First Name';
-  static const lastName = 'Last Name';
-  static const enterFullName = 'enter full name';
-  static const johnDoe = 'johndoe@gmail.com';
+  static const firstName = 'Firstname';
+  static const lastName = 'Lastname';
+  static const userName = 'Username';
   static const emailAddress = 'Email Address';
+  static const enterFullName = 'enter full name';
+  static const continueText = 'Continue';
+  static const johnDoe = 'johndoe@gmail.com';
   static const enterEmailAddress = 'enter email address';
   static const enterEmailLinked = 'Enter email linked to your account';
   static const cellPhone = 'Cell Phone';
   static const createAccount = 'Create Account';
+  static const exitAppText = 'Exit App';
+  static const exitAppConfirmationText = 'Are you sure you want to exit the app?';
   static const enterCellPhone = 'enter cell phone';
   static const password = 'Password';
   static const enterPwd = 'Enter your password';
@@ -19,6 +23,7 @@ class TTexts {
   static const enterOtpCode = 'Enter Otp Code';
   static const enterConfirmPwd = 'Re-enter your password';
   static const forgotPassword = 'Forgot Password ?';
+  static const passwordResetSuccessful = 'Password reset successful';
   static const dontHaveAccount = "Don't have an account";
   static const send = 'Send';
   static const adminLogin = 'Admin Login';
@@ -79,8 +84,11 @@ class TTexts {
   static const privacyPolicy = 'Privacy Policy';
   static const enterCode = 'Please enter the code we sent to your mail';
   static const resetPwd = 'Reset Password';
+  static const somethingWentWrong = 'Something Went Wrong';
+  static var holdMomentText = "Hold on";
+  static const checkErrorLogs = 'Check Error Logs';
+
   static const campTonFont = 'Campton';
 
-  static var holdMomentText;
 
 }

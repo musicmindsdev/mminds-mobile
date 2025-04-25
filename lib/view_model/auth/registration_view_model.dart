@@ -27,11 +27,11 @@ class RegistrationViewModel extends ChangeNotifier {
       TextEditingController();
   final TextEditingController _firstNameController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
-  final TextEditingController _userNameNameController = TextEditingController();
+  final TextEditingController _userNameController = TextEditingController();
   final TextEditingController _fullNameNameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  TextEditingController get userNameNameController => _userNameNameController;
+  TextEditingController get userNameController => _userNameController;
   TextEditingController get passwordController => _passwordController;
   final TextEditingController _refCodeController = TextEditingController();
   CustomButtonState _buttonRegisterState = CustomButtonState(
@@ -76,10 +76,8 @@ class RegistrationViewModel extends ChangeNotifier {
   }
 
   void updateRegisterButtonState() {
-    if (_registerEmailController.text.isEmpty ||
-        _registerPhoneController.text.isEmpty ||
-        _fullNameNameController.text.isEmpty ||
-        _userNameNameController.text.isEmpty) {
+    if (_firstNameController.text.isEmpty || _lastNameController.text.isEmpty||
+        _userNameController.text.isEmpty || _registerEmailController.text.isEmpty || _registerPwdController.text.isEmpty) {
       _buttonRegisterState = CustomButtonState(
         buttonState: ButtonState.disabled,
         text: TTexts.login,
@@ -107,7 +105,7 @@ class RegistrationViewModel extends ChangeNotifier {
         await authService
             .signUp(
           email: _registerEmailController.text.trim(),
-          userName: _userNameNameController.text.trim(),
+          userName: _userNameController.text.trim(),
           fullName: _fullNameNameController.text.trim(),
           password: _passwordController.text.trim(),
         )

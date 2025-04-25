@@ -39,7 +39,7 @@ class CustomTextField extends StatefulWidget {
     this.onForgotPassTap,
     this.visibleField = true,
     this.borderWidth = 1,
-    required this.focusNode,
+    this.focusNode,
     this.showError = false,
     this.errorText,
     this.validators,
@@ -78,10 +78,10 @@ class CustomTextField extends StatefulWidget {
   final bool visibleField;
   final double? width;
   final double? height;
-  final FocusNode focusNode;
+  final FocusNode? focusNode;
   final bool? showError;
   final String? errorText;
-  final Validators? validators;
+  final  FormFieldValidator<String>? validators;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -94,7 +94,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
     String? myerrorText;
     // widget.errorText.toString();
     final myFocusNode = widget.focusNode;
-    final validators = widget.validators;
     var _showError = widget.showError;
     final Validators validatorOne = Validators();
     final theme = Theme.of(context);
@@ -153,8 +152,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
               enabled: widget.enabled,
               textAlign: widget.textAlign,
               maxLines: widget.maxLines ?? 1,
-              // validator: widget.validators,
-              // onChanged: onChanged,
               onChanged: (text) {
                 setState(() {
                   myerrorText =validatorOne.validateEmail(text);

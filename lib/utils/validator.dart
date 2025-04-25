@@ -39,6 +39,12 @@ class Validators {
     }
     return null;
   }
+  String? validateEmptyField(String? value) {
+    if (value!.trim().isEmpty) {
+      return 'Field cannot be empty';
+    }
+    return null;
+  }
 
   String? validateZip(String? value) {
     if (value!.trim().isEmpty) {
@@ -71,6 +77,27 @@ class Validators {
       return 'Password must contain at least one digit';
     } else if (!mustContainCharacter.hasMatch(value.trim())) {
       return 'at least one special character';
+    }
+    return null;
+  }
+  String? validateBvn(String? value) {
+    if (value!.trim().isEmpty) {
+      return 'Field cannot be empty';
+    }else if (int.tryParse(value) == null) {
+      return 'Field should be a valid number';
+    } else if (value.length < 11) {
+      return 'Field should be 11 digits';
+    }
+    return null;
+  }
+
+  String? validateBankAccount(String? value) {
+    if (value!.trim().isEmpty) {
+      return 'Field cannot be empty';
+    }else if (int.tryParse(value) == null) {
+      return 'Field should be a valid number';
+    } else if (value.length < 10) {
+      return 'Field should be 10 digits';
     }
     return null;
   }
@@ -111,6 +138,12 @@ class Validators {
 
   String? validateEmptyTextField(String? value) {
     if (value!.trim().isEmpty) {
+      return 'This field cannot be empty';
+    }
+    return null;
+  }
+  String? validateNullTextField(String? value) {
+    if (value == null) {
       return 'This field cannot be empty';
     }
     return null;
@@ -157,10 +190,10 @@ class Validators {
 
 class FieldValidator {
   static String? validateText(
-    String value, {
-    String? error,
-    num? maxCharacters,
-  }) {
+      String value, {
+        String? error,
+        num? maxCharacters,
+      }) {
     if (value.isEmpty) {
       return error ?? 'This field cannot be empty';
     }

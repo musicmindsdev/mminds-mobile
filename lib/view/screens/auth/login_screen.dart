@@ -15,8 +15,8 @@ class LoginScreen extends ConsumerStatefulWidget {
 }
 
 class _LoginScreenState extends ConsumerState<LoginScreen> {
-  FocusNode emailFocusNode = FocusNode();
-  FocusNode passwordFocusNode = FocusNode();
+  final loginFormKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
      ref.watch(authViewModel);
@@ -100,45 +100,54 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
   //Contains a list of form fields
   Widget formFields() {
-    var provider = ref.watch(authViewModel);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CustomTextField(
-          fieldLabel: '',
-          hint: "Email Address or Username",
-          controller: provider.emailController, focusNode: emailFocusNode,
+    var authProvider = ref.watch(authViewModel);
 
-        ),
-
-        CustomTextField(
-          fieldLabel: '',
-          hint: "Password",
-          password: true,
-          obscureInput: provider.loginObscurePass,
-          controller: provider.passwordController,
-          onForgotPassTap: () {
-            navigatePush(context, const ResetPasswordScreen());
-          },
-          onObscureText: provider.togglePassWordVisibility,
-          visibleField: true,
-          useForgotPass: true, focusNode: passwordFocusNode,
-        ),
-
-        // useForgotPass: true,
-      ],
+    return Form(
+      key: loginFormKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomTextField(
+            fieldLabel: '',
+            hint: "Email Address or Username",
+            controller: authProvider.loginEmailController,
+      
+          ),
+      
+          CustomTextField(
+            fieldLabel: TTexts.password,
+            hint: TTexts.password,
+            password: true,
+            obscureInput: authProvider.loginObscurePass,
+            controller: authProvider.loginPwdController,
+            onForgotPassTap: () {
+              navigatePush(context, const ResetPasswordScreen());
+            },
+           validators: (value) =>
+              Validators().validateEmptyTextField(value),
+            onObscureText: authProvider.toggleLoginPwdVisibility,
+            visibleField: true,
+            useForgotPass: true,
+          ),
+      
+          // useForgotPass: true,
+        ],
+      ),
     );
   }
 
   //Contains custom button
   submitButton() {
-    var provider = ref.watch(authViewModel);
+    var authProvider = ref.watch(authViewModel);
     return DefaultButtonMain(
-      text: 'Login',
-      buttonState: provider.buttonState!.buttonState,
+      text: TTexts.login,
+      buttonState: authProvider.buttonLoginState!.buttonState,
       onPressed: () async {
-        // await provider.userLogin(context);
-        navigatePush(context,  DashboardScreen());
+        if (loginFormKey.currentState!.validate()) {
+          loginFormKey.currentState!.save();
+          navigatePush(context,  DashboardScreen());
+        }
+        // await authProvider.userLogin(context);
       },
     );
   }

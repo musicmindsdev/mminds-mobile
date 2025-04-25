@@ -10,6 +10,9 @@ class DummyData {
   static String? userId = "";
   static String? firstName = "";
   static String? lastName = "";
+  static String? fullName = "";
+  static String? userName = "";
+  static bool isDarkTheme = false;
   static String? phoneNumber;
   static String? accessToken = "";
 }

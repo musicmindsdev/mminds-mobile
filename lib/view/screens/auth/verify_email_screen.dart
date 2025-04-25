@@ -58,6 +58,7 @@ class _VerifyEmailScreenState extends ConsumerState<VerifyEmailScreen> {
   }
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -158,21 +159,19 @@ class _VerifyEmailScreenState extends ConsumerState<VerifyEmailScreen> {
   }
 
   pinCodeField() {
-    var provider = ref.watch(authViewModel);
+    var authProvider = ref.watch(authViewModel);
     return PinCodeTextField(
       appContext: context,
       obscuringCharacter: '*',
       length: 6,
-      controller: provider.otpController,
+      // controller: provider.otpController,
       obscureText: isObscure,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       cursorColor: AppColors.kAshBlue,
       keyboardType: TextInputType.number,
       animationType: AnimationType.fade,
-      onChanged: (value) {
-        // dongleId = value;
-        // logger.wtf(dongleId);
-      },
+      onChanged: (value) =>
+          authProvider.updateVerifyButtonState(value),
       // hintCharacter: '-',
       hintStyle: const TextStyle(
         color: AppColors.kAshBlue,
@@ -197,10 +196,10 @@ class _VerifyEmailScreenState extends ConsumerState<VerifyEmailScreen> {
   }
 
   submitButton() {
-    var provider = ref.watch(authViewModel);
+    var authProvider = ref.watch(authViewModel);
     return DefaultButtonMain(
       text: 'Next',
-      buttonState: provider.buttonConfirmAccountState!.buttonState,
+      buttonState: authProvider.buttonVerifyState!.buttonState,
       onPressed: () async {
         // await provider.userConfirmAccount(context);
         navigatePush(context, EmailVerifySuccessScreen());

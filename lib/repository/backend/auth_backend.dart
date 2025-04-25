@@ -32,15 +32,89 @@ class AuthBackend extends ApiService {
       },
     );
   }
-
-  Future<dynamic> confirmUserAccount({
+  Future<dynamic> verifyEmail({
     required String email,
     required String otp,
   }) async {
     return postMth(
-      confirmAccountUri,
+      verifyEmailUri,
       headers: apiHeader,
-      body: {'email': email, 'otp': otp},
+      body: {
+        'email': email,
+        "otp": otp.trim(),
+      },
+    );
+  }
+
+
+
+  Future<dynamic> sendAndResendOTP({
+    required String email,
+    String? phone,
+    required String channel,
+  }) async {
+    return postMth(
+      sendOTPUri,
+      headers: apiHeader,
+      body: {
+        'email': email.trim(),
+      },
+    );
+  }
+
+  Future<dynamic> forgotPassword({
+    required String email,
+    String? phone,
+  }) async {
+    return postMth(
+      forgotPasswordUri,
+      headers: apiHeader,
+      body: {
+        'email': email.trim(),
+      },
+    );
+  }
+
+  Future<dynamic> verifyResetPasswordOtp({
+    required String email,
+    String? phone,
+  }) async {
+    return postMth(
+      verifyResetPasswordOtpUri,
+      headers: apiHeader,
+      body: {
+        'email': email.trim(),
+      },
+    );
+  }
+
+
+  Future<dynamic> resetPassword({
+    required String sid,
+    required String password,
+  }) async {
+    return postMth(
+      resetPasswordUri,
+      headers: apiHeader,
+      body: {
+        'sid': sid.trim(),
+        "password": password
+      },
+    );
+  }
+
+
+  Future<dynamic> changePassword({
+    required String oldPassword,
+    required String newPassword,
+  }) async {
+    return postMth(
+      changePasswordUri,
+      headers: apiHeaderWithToken(),
+      body: {
+        "current_password": newPassword,
+        "new_password": oldPassword,
+      },
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:music_minds/model/response/registration_successful_response_model.dart';
+import 'package:music_minds/model/response/response/user_response_model.dart';
 import 'package:music_minds/src/models.dart';
 
 class ResponseData {

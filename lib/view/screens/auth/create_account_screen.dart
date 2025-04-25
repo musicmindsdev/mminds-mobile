@@ -5,6 +5,7 @@ import 'package:music_minds/src/components.dart';
 import 'package:music_minds/src/screens.dart';
 import 'package:music_minds/src/utils.dart';
 import 'package:music_minds/view_model/auth/auth_view_model.dart';
+import 'package:music_minds/view_model/auth/registration_view_model.dart';
 
 class CreateAccountScreen extends ConsumerStatefulWidget {
   const CreateAccountScreen({super.key});
@@ -18,13 +19,7 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
   bool isChecked = false;
   bool obscurePasswordText = true;
   bool obscureConfirmPasswordText = true;
-  FocusNode emailFocusNode = FocusNode();
-  FocusNode userNameFocusNode = FocusNode();
-  FocusNode roleFocusNode = FocusNode();
-  FocusNode passwordFocusNode = FocusNode();
-  FocusNode confirmPasswordFocusNode = FocusNode();
-  FocusNode firstNameFocusNode = FocusNode();
-  FocusNode lastNameFocusNode = FocusNode();
+
   bool? isSelectedRole;
   String? selectedRole;
   List<RoleClass>? roles;
@@ -43,7 +38,7 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
 
   @override
   Widget build(BuildContext context) {
-    ref.watch(authViewModel);
+    ref.watch(registrationViewModel);
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -117,94 +112,83 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
 
   //Contains a list of form fields
   Widget formFields() {
-    final Validators validators = Validators();
-    var provider = ref.watch(authViewModel);
-    final emailRes =
-        validators.validateEmail(provider.emailSignUpController.text);
+    var registrationProvider = ref.watch(registrationViewModel);
+    return Form(
+      key: registrationProvider.registrationFormKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomTextField(
+            fieldLabel: '',
+            hint: TTexts.firstName,
+            controller: registrationProvider.firstNameController,
+            validators: (value) =>
+                Validators().validateName(value),
+            onChanged: (value) =>
+                registrationProvider.updateRegisterButtonState(),
+          ),
+          CustomTextField(
+            fieldLabel: '',
+            hint: TTexts.lastName,
+            validators: (value) =>
+                Validators().validateName(value),
+            controller: registrationProvider.lastNameController,
+            onChanged: (value) =>
+                registrationProvider.updateRegisterButtonState(),
+          ),
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CustomTextField(
-          fieldLabel: '',
-          focusNode: firstNameFocusNode,
-          hint: "Firstname",
-          controller: provider.firstNameController,
-        ),
-        CustomTextField(
-          fieldLabel: '',
-          focusNode: lastNameFocusNode,
-          hint: "Lastname",
-          controller: provider.lastNameController,
-        ),
+          CustomTextField(
+            fieldLabel: '',
+            hint: TTexts.userName,
+            controller: registrationProvider.userNameController,
+            validators: (value) =>
+                Validators().validateEmptyField(value),
+            onChanged: (value) =>
+                registrationProvider.updateRegisterButtonState(),
+          ),
+          CustomTextField(
+            fieldLabel: '',
+            hint: TTexts.emailAddress,
+            controller: registrationProvider.registerEmailController,
+            validators: (value) =>
+                Validators().validateEmail(value),
+            onChanged: (value) =>
+                registrationProvider.updateRegisterButtonState(),
+          ),
+          CustomTextField(
+            fieldLabel: '',
+            hint: TTexts.password,
+            password: true,
+            controller: registrationProvider.registerPwdController,
+            obscureInput: obscurePasswordText,
+            onObscureText: () {
+              togglePassWordVisibility();
+            },
+          ),
+          CustomTextField(
+            fieldLabel: '',
+            hint:TTexts.confirmPassword,
+            visibleField: true,
+            password: true,
+            controller: registrationProvider.registerConfirmPwdController,
+            obscureInput: obscureConfirmPasswordText,
+            onObscureText: () {
+              toggleConfirmPassWordVisibility();
+            },
+            // useForgotPass: true,
+          ),
 
-        CustomTextField(
-          fieldLabel: '',
-          focusNode: userNameFocusNode,
-          hint: "Username",
-          controller: provider.userNameController,
-          // validator: ref.watch(authViewModel).validators.validateEmail,
-        ),
-        CustomTextField(
-          fieldLabel: '',
-          focusNode: emailFocusNode,
-          hint: "Email Address",
-          controller: provider.emailSignUpController,
-          // validator: ref.watch(authViewModel).validators.validateEmail,
-        ),
-        CustomTextField(
-          fieldLabel: '',
-          focusNode: passwordFocusNode,
-          hint: "Password",
-          password: true,
-          controller: provider.passwordRegisterController,
-          obscureInput: obscurePasswordText,
-          onObscureText: () {
-            togglePassWordVisibility();
-          },
-        ),
-        CustomTextField(
-          fieldLabel: '',
-          focusNode: confirmPasswordFocusNode,
-          hint: "Confirm Password",
-          visibleField: true,
-          password: true,
-          controller: provider.passwordConfirmRegisterController,
-          obscureInput: obscureConfirmPasswordText,
-          onObscureText: () {
-            toggleConfirmPassWordVisibility();
-          },
-          // useForgotPass: true,
-        ),
-        /*CustomTextField(
-          fieldLabel: '',
-          focusNode: roleFocusNode,
-          hint: "Role",
-          controller: TextEditingController(text: selectedRole ?? ''),
-          readOnly: true,
-          onTap: (){
-            rolePopUp();
-          },
-
-          // useForgotPass: true,
-        ),*/
-
-        // CustomTextFieldSelect(
-        //   fieldLabel: '',
-        //   controller: TextEditingController(text: selectedRole ?? ''),
-        //   focusNode: roleFocusNode,
-        // )
-        // MyForm()
-      ],
+        ],
+      ),
     );
   }
 
   //Contains custom button
   submitButton() {
-    var provider = ref.watch(authViewModel);
+    var registrationProvider = ref.watch(registrationViewModel);
     return DefaultButtonMain(
-      text: 'Create account',
-      buttonState: provider.buttonRegisterState!.buttonState,
+      text: TTexts.createAccount,
+      buttonState: registrationProvider.buttonRegisterState!.buttonState,
       onPressed: () async {
 
       },

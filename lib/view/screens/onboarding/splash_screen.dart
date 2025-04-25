@@ -38,7 +38,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.KTextBlack,
+      // backgroundColor: AppColors.KTextBlack,
       body: Center(
           child: SizedBox(
         width: 208.w,

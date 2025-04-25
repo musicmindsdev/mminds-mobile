@@ -149,7 +149,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         style: TextStyle(
                             fontSize: 16.spMin,
                             fontWeight: FontWeight.w400,
-                            fontFamily: "Campton",
+                            fontFamily:  TTexts.campTonFont,
                             color: AppColors.KBlack),
                       ),
                       InkWell(
@@ -187,7 +187,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         style: TextStyle(
                           fontSize: 12.spMin,
                           fontWeight: FontWeight.w500,
-                          fontFamily: "Campton",
+                          fontFamily:  TTexts.campTonFont,
                           color: AppColors.KNeutralFormFieldText,
                         ),
                       ),
@@ -222,7 +222,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                   style: TextStyle(
                                     fontSize: 14.spMin,
                                     fontWeight: FontWeight.w500,
-                                    fontFamily: "Campton",
+                                    fontFamily:  TTexts.campTonFont,
                                   ),
                                 ),
                                 onPressed: () {},
@@ -250,7 +250,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                       color: AppColors.kPrimaryColor,
                                       fontWeight: FontWeight.w400,
                                       fontSize: 14.spMin,
-                                      fontFamily: "Campton",
+                                      fontFamily:  TTexts.campTonFont,
                                     ),
                                   ),
                                 ),
@@ -275,7 +275,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         style: TextStyle(
                           fontSize: 12.spMin,
                           fontWeight: FontWeight.w500,
-                          fontFamily: "Campton",
+                          fontFamily:  TTexts.campTonFont,
                           color: AppColors.KNeutralFormFieldText,
                         ),
                       ),
@@ -352,7 +352,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                       fontSize: 14.spMin,
                                                       fontWeight: FontWeight.w500,
                                                       color: AppColors.KBlack,
-                                                      fontFamily: "Campton",
+                                                      fontFamily:  TTexts.campTonFont,
                                                     ),
                                                   ))
                                               .toList(),
@@ -396,7 +396,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         style: TextStyle(
                           fontSize: 12.spMin,
                           fontWeight: FontWeight.w500,
-                          fontFamily: "Campton",
+                          fontFamily:  TTexts.campTonFont,
                           color: AppColors.KNeutralFormFieldText,
                         ),
                       ),
@@ -408,7 +408,7 @@ class _SearchScreenState extends State<SearchScreen> {
                               leading: Text(
                                 services[index]["serviceType"],
                                 style: TextStyle(
-                                  fontFamily: "Campton",
+                                  fontFamily:  TTexts.campTonFont,
                                   fontWeight: FontWeight.w400,
                                   color: AppColors.KBlack,
                                   fontSize: 14.spMin,
@@ -593,7 +593,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       : TextView(
                           text: "Search",
                           color: AppColors.KBlue,
-                          fontFamily: "Campton",
+                          fontFamily:  TTexts.campTonFont,
                           fontSize: 12.48.spMin,
                           fontWeight: FontWeight.w500,
                         )
@@ -643,7 +643,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                       TextView(
                                         text: filteredMusicians[index],
                                         color: AppColors.KBlack,
-                                        fontFamily: "Campton",
+                                        fontFamily:  TTexts.campTonFont,
                                         fontSize: 16.spMin,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -743,7 +743,7 @@ class DefaultMaxMinButton extends StatelessWidget {
       //     color: AppColors.KNeutralFormFieldText,
       //     fontWeight: FontWeight.w400,
       //     fontSize: 14.spMin,
-      //     fontFamily: "Campton",
+      //     fontFamily:  TTexts.campTonFont,
       //   ),
       // ),
     );

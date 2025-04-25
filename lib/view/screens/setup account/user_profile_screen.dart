@@ -15,35 +15,35 @@ class UserProfileScreen extends StatefulWidget {
 
 List<TextView> profileOptions = [
   TextView(
-    fontFamily: "Campton",
+    fontFamily:  TTexts.campTonFont,
     text: "Artist",
     fontWeight: FontWeight.w400,
     fontSize: 14.spMin,
     color: AppColors.KBlack,
   ),
   TextView(
-    fontFamily: "Campton",
+    fontFamily:  TTexts.campTonFont,
     text: "Teacher/Coach",
     fontWeight: FontWeight.w400,
     fontSize: 14.spMin,
     color: AppColors.KBlack,
   ),
   TextView(
-    fontFamily: "Campton",
+    fontFamily:  TTexts.campTonFont,
     text: "Agency Profile",
     fontWeight: FontWeight.w400,
     fontSize: 14.spMin,
     color: AppColors.KBlack,
   ),
   TextView(
-    fontFamily: "Campton",
+    fontFamily:  TTexts.campTonFont,
     text: "Studio Profile",
     fontWeight: FontWeight.w400,
     fontSize: 14.spMin,
     color: AppColors.KBlack,
   ),
   TextView(
-    fontFamily: "Campton",
+    fontFamily:  TTexts.campTonFont,
     text: "Fan",
     fontWeight: FontWeight.w400,
     fontSize: 14.spMin,
@@ -125,7 +125,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                             "Setup profile",
                             textAlign: TextAlign.start,
                             style: TextStyle(
-                              fontFamily: "Campton",
+                              fontFamily:  TTexts.campTonFont,
                               fontSize: 28.spMin,
                               fontWeight: FontWeight.w600,
                               color: AppColors.KBlack,
@@ -137,7 +137,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           child: Text(
                             "Let others know what makes you unique!",
                             style: TextStyle(
-                              fontFamily: "Campton",
+                              fontFamily:  TTexts.campTonFont,
                               fontWeight: FontWeight.w400,
                               fontSize: 14.spMin,
                               color: AppColors.KUserProfileNeutral,
@@ -179,7 +179,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                         ),
                                       ),
                                       labelStyle: TextStyle(
-                                        fontFamily: "Campton",
+                                        fontFamily:  TTexts.campTonFont,
                                         color: AppColors.KBlue,
                                         fontWeight: FontWeight.w500,
                                         fontSize: 12.spMin,
@@ -232,7 +232,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                         borderRadius: BorderRadius.circular(4.r),
                                       ),
                                       labelStyle: TextStyle(
-                                        fontFamily: "Campton",
+                                        fontFamily:  TTexts.campTonFont,
                                         color: AppColors.KBlue,
                                         fontWeight: FontWeight.w500,
                                         fontSize: 12.spMin,
@@ -279,7 +279,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                         borderRadius: BorderRadius.circular(4.r),
                                       ),
                                       labelStyle: TextStyle(
-                                        fontFamily: "Campton",
+                                        fontFamily:  TTexts.campTonFont,
                                         color: AppColors.KBlue,
                                         fontWeight: FontWeight.w500,
                                         fontSize: 12.spMin,
@@ -326,7 +326,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                         borderRadius: BorderRadius.circular(4.r),
                                       ),
                                       labelStyle: TextStyle(
-                                        fontFamily: "Campton",
+                                        fontFamily:  TTexts.campTonFont,
                                         color: AppColors.KBlue,
                                         fontWeight: FontWeight.w500,
                                         fontSize: 12.spMin,
@@ -373,7 +373,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                         borderRadius: BorderRadius.circular(4.r),
                                       ),
                                       labelStyle: TextStyle(
-                                        fontFamily: "Campton",
+                                        fontFamily:  TTexts.campTonFont,
                                         color: AppColors.KBlue,
                                         fontWeight: FontWeight.w500,
                                         fontSize: 12.spMin,
@@ -414,7 +414,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                 children: [
                                   RadioListTile(
                                     title: TextView(
-                                      fontFamily: "Campton",
+                                      fontFamily:  TTexts.campTonFont,
                                       text: "Artist",
                                       fontWeight: FontWeight.w400,
                                       fontSize: 14.spMin,
@@ -441,7 +441,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                               borderRadius: BorderRadius.circular(4.r),
                                             ),
                                             labelStyle: TextStyle(
-                                              fontFamily: "Campton",
+                                              fontFamily:  TTexts.campTonFont,
                                               color: AppColors.KBlue,
                                               fontWeight: FontWeight.w500,
                                               fontSize: 12.spMin,
@@ -495,7 +495,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                 children: [
                                   RadioListTile(
                                     title: TextView(
-                                      fontFamily: "Campton",
+                                      fontFamily:  TTexts.campTonFont,
                                       text: "Teacher/Coach",
                                       fontWeight: FontWeight.w400,
                                       fontSize: 14.spMin,
@@ -532,7 +532,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                 children: [
                                   RadioListTile(
                                     title: TextView(
-                                      fontFamily: "Campton",
+                                      fontFamily:  TTexts.campTonFont,
                                       text: "Agency Proflie",
                                       fontWeight: FontWeight.w400,
                                       fontSize: 14.spMin,
@@ -569,7 +569,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                 children: [
                                   RadioListTile(
                                     title: TextView(
-                                      fontFamily: "Campton",
+                                      fontFamily:  TTexts.campTonFont,
                                       text: "Studio Profile",
                                       fontWeight: FontWeight.w400,
                                       fontSize: 14.spMin,
@@ -606,7 +606,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                 children: [
                                   RadioListTile(
                                     title: TextView(
-                                      fontFamily: "Campton",
+                                      fontFamily:  TTexts.campTonFont,
                                       text: "Fan",
                                       fontWeight: FontWeight.w400,
                                       fontSize: 14.spMin,

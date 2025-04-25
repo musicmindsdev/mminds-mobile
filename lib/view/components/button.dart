@@ -486,7 +486,7 @@ class DefaultTextButton extends StatelessWidget {
           fontWeight: FontWeight.w400,
           fontSize: 14.spMin,
           color: AppColors.KBlack,
-          fontFamily: "Campton",
+          fontFamily:  TTexts.campTonFont,
         ),
       ),
     );

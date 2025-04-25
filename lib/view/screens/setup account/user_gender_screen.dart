@@ -17,7 +17,7 @@ class UserGenderScreen extends StatefulWidget {
 List<RadioListTileObject> genderOptions = [
   RadioListTileObject(
     textObject: TextView(
-      fontFamily: "Campton",
+      fontFamily:  TTexts.campTonFont,
       text: "Male",
       fontWeight: FontWeight.w400,
       fontSize: 14.spMin,
@@ -27,7 +27,7 @@ List<RadioListTileObject> genderOptions = [
   ),
   RadioListTileObject(
     textObject: TextView(
-      fontFamily: "Campton",
+      fontFamily:  TTexts.campTonFont,
       text: "Female",
       fontWeight: FontWeight.w400,
       fontSize: 14.spMin,
@@ -37,7 +37,7 @@ List<RadioListTileObject> genderOptions = [
   ),
   RadioListTileObject(
     textObject: TextView(
-      fontFamily: "Campton",
+      fontFamily:  TTexts.campTonFont,
       text: "Other",
       fontWeight: FontWeight.w400,
       fontSize: 14.spMin,
@@ -47,7 +47,7 @@ List<RadioListTileObject> genderOptions = [
   ),
   RadioListTileObject(
     textObject: TextView(
-      fontFamily: "Campton",
+      fontFamily:  TTexts.campTonFont,
       text: "Prefer not to say",
       fontWeight: FontWeight.w400,
       fontSize: 14.spMin,
@@ -114,7 +114,7 @@ class _UserGenderScreenState extends State<UserGenderScreen> {
                           "Choose your gender",
                           textAlign: TextAlign.start,
                           style: TextStyle(
-                            fontFamily: "Campton",
+                            fontFamily:  TTexts.campTonFont,
                             fontSize: 28.spMin,
                             fontWeight: FontWeight.w600,
                             color: AppColors.KBlack,

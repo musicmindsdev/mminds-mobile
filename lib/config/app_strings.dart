@@ -78,5 +78,8 @@ class TTexts {
   static const privacyPolicy = 'Privacy Policy';
   static const enterCode = 'Please enter the code we sent to your mail';
   static const resetPwd = 'Reset Password';
+  static const campTonFont = 'Campton';
+
+  static var holdMomentText;
 
 }

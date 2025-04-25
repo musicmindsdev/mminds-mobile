@@ -77,7 +77,7 @@ class _ProfilePictureScreenState extends State<ProfilePictureScreen> {
                       ),
                       text: "Take picture",
                       fontWeight: FontWeight.w400,
-                      fontFamily: "Campton",
+                      fontFamily:  TTexts.campTonFont,
                       fontSize: 16.68.spMin,
                       color: AppColors.KBlack,
                     ),
@@ -103,7 +103,7 @@ class _ProfilePictureScreenState extends State<ProfilePictureScreen> {
                       ),
                       text: "Choose an existing picture",
                       fontWeight: FontWeight.w400,
-                      fontFamily: "Campton",
+                      fontFamily:  TTexts.campTonFont,
                       fontSize: 16.68.spMin,
                       color: AppColors.KBlack,
                     ),
@@ -169,7 +169,7 @@ class _ProfilePictureScreenState extends State<ProfilePictureScreen> {
                             maxLines: 1,
                             "Profile Picture",
                             style: TextStyle(
-                              fontFamily: "Campton",
+                              fontFamily:  TTexts.campTonFont,
                               fontWeight: FontWeight.w600,
                               fontSize: 28.spMin,
                               color: AppColors.KBlack,
@@ -178,7 +178,7 @@ class _ProfilePictureScreenState extends State<ProfilePictureScreen> {
                           Text(
                             "Setup your profile picture",
                             style: TextStyle(
-                              fontFamily: "Campton",
+                              fontFamily:  TTexts.campTonFont,
                               fontWeight: FontWeight.w500,
                               fontSize: 14.spMin,
                               color: AppColors.KNeutralBlack,
@@ -273,7 +273,7 @@ class _ProfilePictureScreenState extends State<ProfilePictureScreen> {
                           style: TextStyle(
                             fontSize: 14.spMin,
                             fontWeight: FontWeight.w500,
-                            fontFamily: "Campton",
+                            fontFamily:  TTexts.campTonFont,
                           ),
                         ),
                         onPressed: () {})

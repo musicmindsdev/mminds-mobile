@@ -162,7 +162,7 @@ class _BookScreenState extends State<BookScreen> {
                                 color: AppColors.KBlack,
                                 fontSize: 20.spMin,
                                 fontWeight: FontWeight.w500,
-                                fontFamily: "Campton",
+                                fontFamily: TTexts.campTonFont,
                               ),
                             ),
                             SizedBox(
@@ -174,7 +174,7 @@ class _BookScreenState extends State<BookScreen> {
                                     text: "@gilbertwisdom",
                                     color: AppColors.KNeutralFormFieldText,
                                     fontSize: 12.spMin,
-                                    fontFamily: "Campton",
+                                    fontFamily:  TTexts.campTonFont,
                                     fontWeight: FontWeight.w400,
                                   ),
                                   const Gap(5),
@@ -196,7 +196,7 @@ class _BookScreenState extends State<BookScreen> {
                                       text: "Songwriter",
                                       fontSize: 12.spMin,
                                       fontWeight: FontWeight.w500,
-                                      fontFamily: "Campton",
+                                      fontFamily:  TTexts.campTonFont,
                                       color: AppColors.KBlue,
                                     ),
                                   ),
@@ -240,7 +240,7 @@ class _BookScreenState extends State<BookScreen> {
                         color: AppColors.KCircleNeutralColor,
                         fontSize: 12.spMin,
                         fontWeight: FontWeight.w500,
-                        fontFamily: "Campton",
+                        fontFamily:  TTexts.campTonFont,
                       ),
                       SizedBox(
                         height: 88.h,
@@ -277,7 +277,7 @@ class _BookScreenState extends State<BookScreen> {
                                     style: TextStyle(
                                       fontSize: 14.spMin,
                                       fontWeight: FontWeight.w500,
-                                      fontFamily: "Campton",
+                                      fontFamily:  TTexts.campTonFont,
                                     ),
                                   ),
                                   onPressed: () {},
@@ -344,7 +344,7 @@ class _BookScreenState extends State<BookScreen> {
                         color: AppColors.KCircleNeutralColor,
                         fontSize: 12.spMin,
                         fontWeight: FontWeight.w500,
-                        fontFamily: "Campton",
+                        fontFamily:  TTexts.campTonFont,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -389,7 +389,7 @@ class _BookScreenState extends State<BookScreen> {
                                                   fontSize: 14.spMin,
                                                   fontWeight: FontWeight.w500,
                                                   color: AppColors.KBlack,
-                                                  fontFamily: "Campton",
+                                                  fontFamily:  TTexts.campTonFont,
                                                 ),
                                               ))
                                           .toList(),
@@ -421,7 +421,7 @@ class _BookScreenState extends State<BookScreen> {
                           style: TextStyle(
                             fontSize: 12.spMin,
                             fontWeight: FontWeight.w400,
-                            fontFamily: "Campton",
+                            fontFamily:  TTexts.campTonFont,
                             color: AppColors.KNeutral,
                           ),
                           children: [
@@ -429,7 +429,7 @@ class _BookScreenState extends State<BookScreen> {
                                 text: "500.00 USD",
                                 style: TextStyle(
                                   fontSize: 12.spMin,
-                                  fontFamily: "Campton",
+                                  fontFamily:  TTexts.campTonFont,
                                   fontWeight: FontWeight.w500,
                                   color: AppColors.KUserProfileNeutral,
                                 ))
@@ -455,7 +455,7 @@ class _BookScreenState extends State<BookScreen> {
                         color: AppColors.KCircleNeutralColor,
                         fontSize: 12.spMin,
                         fontWeight: FontWeight.w500,
-                        fontFamily: "Campton",
+                        fontFamily:  TTexts.campTonFont,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -507,7 +507,7 @@ class _BookScreenState extends State<BookScreen> {
                         color: AppColors.KCircleNeutralColor,
                         fontSize: 12.spMin,
                         fontWeight: FontWeight.w500,
-                        fontFamily: "Campton",
+                        fontFamily:  TTexts.campTonFont,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -569,7 +569,7 @@ class _BookScreenState extends State<BookScreen> {
                             color: AppColors.KCircleNeutralColor,
                             fontSize: 12.spMin,
                             fontWeight: FontWeight.w500,
-                            fontFamily: "Campton",
+                            fontFamily:  TTexts.campTonFont,
                           ),
                           SizedBox(
                             width: 72.w,
@@ -593,7 +593,7 @@ class _BookScreenState extends State<BookScreen> {
                                     color: AppColors.KCircleNeutralColor,
                                     fontSize: 12.spMin,
                                     fontWeight: FontWeight.w500,
-                                    fontFamily: "Campton",
+                                    fontFamily:  TTexts.campTonFont,
                                   ),
                                 ),
                               ],
@@ -617,7 +617,7 @@ class _BookScreenState extends State<BookScreen> {
                                 fontSize: 14.spMin,
                                 fontWeight: FontWeight.w400,
                                 color: AppColors.KNeutralFormFieldText,
-                                fontFamily: "Campton",
+                                fontFamily:  TTexts.campTonFont,
                               ),
                               isExpanded: true,
                               icon: Icon(
@@ -633,7 +633,7 @@ class _BookScreenState extends State<BookScreen> {
                                           fontSize: 14.spMin,
                                           fontWeight: FontWeight.w500,
                                           color: AppColors.KBlack,
-                                          fontFamily: "Campton",
+                                          fontFamily:  TTexts.campTonFont,
                                         ),
                                       ))
                                   .toList(),
@@ -654,7 +654,7 @@ class _BookScreenState extends State<BookScreen> {
                                 fontSize: 14.spMin,
                                 fontWeight: FontWeight.w400,
                                 color: AppColors.KNeutralFormFieldText,
-                                fontFamily: "Campton",
+                                fontFamily:  TTexts.campTonFont,
                               ),
                               isExpanded: true,
                               icon: Icon(
@@ -672,7 +672,7 @@ class _BookScreenState extends State<BookScreen> {
                                             value: state.state,
                                             child: TextView(
                                               text: state.state,
-                                              fontFamily: "Campton",
+                                              fontFamily:  TTexts.campTonFont,
                                               fontSize: 15.spMin,
                                               fontWeight: FontWeight.w500,
                                             ),
@@ -704,7 +704,7 @@ class _BookScreenState extends State<BookScreen> {
                                 fontSize: 14.spMin,
                                 fontWeight: FontWeight.w400,
                                 color: AppColors.KNeutralFormFieldText,
-                                fontFamily: "Campton",
+                                fontFamily:  TTexts.campTonFont,
                               ),
                               isExpanded: true,
                               icon: Icon(
@@ -724,7 +724,7 @@ class _BookScreenState extends State<BookScreen> {
                                             value: city,
                                             child: TextView(
                                               text: city,
-                                              fontFamily: "Campton",
+                                              fontFamily:  TTexts.campTonFont,
                                               fontSize: 15.spMin,
                                               fontWeight: FontWeight.w500,
                                             ),
@@ -777,7 +777,7 @@ class _BookScreenState extends State<BookScreen> {
                         color: AppColors.KCircleNeutralColor,
                         fontSize: 12.spMin,
                         fontWeight: FontWeight.w500,
-                        fontFamily: "Campton",
+                        fontFamily:  TTexts.campTonFont,
                       ),
                       DefaultTextField(
                         textInputType: TextInputType.text,
@@ -909,7 +909,7 @@ class DefaultCountryStateCityButton extends StatelessWidget {
               // color: AppColors.KNeutralFormFieldText,
               // fontSize: 14.spMin,
               // fontWeight: FontWeight.w400,
-              // fontFamily: "Campton",
+              // fontFamily:  TTexts.campTonFont,
               // ),
               // SizedBox(
               //   width: 18.w,
@@ -953,7 +953,7 @@ class DefaultCountryStateCityButton extends StatelessWidget {
 //                 color: AppColors.KNeutralFormFieldText,
 //                 fontSize: 14.spMin,
 //                 fontWeight: FontWeight.w400,
-//                 fontFamily: "Campton",
+//                 fontFamily:  TTexts.campTonFont,
 //               ),
 //               // SizedBox(
 //               //   width: 18.w,
@@ -1005,7 +1005,7 @@ class DefaultDateAndTimeButton extends StatelessWidget {
                   text: text,
                   fontSize: 14.spMin,
                   fontWeight: FontWeight.w400,
-                  fontFamily: "Campton",
+                  fontFamily:  TTexts.campTonFont,
                   color: AppColors.KBlack,
                 )
               ],

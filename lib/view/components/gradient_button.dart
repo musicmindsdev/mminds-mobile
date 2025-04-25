@@ -47,7 +47,7 @@ class GradientButton extends StatelessWidget {
           child: Text(
             text ?? "",
             style: TextStyle(
-              fontFamily: "Campton",
+              fontFamily:  TTexts.campTonFont,
               color: textColor,
               fontWeight: FontWeight.w500,
               fontSize: fontSize ?? 12.spMin,

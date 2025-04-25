@@ -126,7 +126,7 @@ class _OnboardingTestScreenState extends State<OnboardingTestScreen> {
                                               style: TextStyle(
                                                 fontSize: 14.spMin,
                                                 fontWeight: FontWeight.w500,
-                                                fontFamily: "Campton",
+                                                fontFamily:  TTexts.campTonFont,
                                               ),
                                             ),
                                             onPressed: () {
@@ -148,7 +148,7 @@ class _OnboardingTestScreenState extends State<OnboardingTestScreen> {
                                           child: OnboardingCircularButton(
                                             colour:
                                                 AppColors.KNeutral.withOpacity(
-                                                    0.5),
+                                                    0.2),
                                             childColor: AppColors.kWhite,
                                             child: Icons.arrow_back_ios,
                                             onPressed: () {
@@ -325,7 +325,7 @@ class TextItems extends StatelessWidget {
 //                       child: Text(
 //                         "Skip",
 //                         style: TextStyle(
-//                           fontFamily: "Campton",
+//                           fontFamily:  TTexts.campTonFont,
 //                           color: AppColors.kWhite,
 //                           fontSize: 16.spMin,
 //                           fontWeight: FontWeight.w700,

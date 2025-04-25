@@ -1,4 +1,4 @@
-package com.example.music_minds
+package com.ims.app
 
 import io.flutter.embedding.android.FlutterActivity
 

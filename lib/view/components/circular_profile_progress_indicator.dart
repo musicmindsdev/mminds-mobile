@@ -22,7 +22,7 @@ class CircularProfileProgressIndicator extends StatelessWidget {
       center: Text(
         text!,
         style: TextStyle(
-          fontFamily: "Campton",
+          fontFamily:  TTexts.campTonFont,
           fontWeight: FontWeight.w600,
           fontSize: 10.spMin,
           color: AppColors.KBlack,

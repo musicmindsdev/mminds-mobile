@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static const kPrimaryColor = Color(0xff09132D);
+  static const kPrimary1 = Color(0xff09132D);
   static const kPrimary2 = Color(0xff121E4A);
   static const kAshBlue = Color(0xffB2BAD1);
   static const kWhite = Color(0xFFFFFFFF);
@@ -60,4 +61,6 @@ class AppColors {
   static const KBorderFillColor = Color(0xffF8FBFF);
   static const KCircleNeutralColor = Color(0xff9B9B9B);
   static const KTimeAndDate = Color(0xffF4F4F5);
+
+  static var kBackgroundDark;
 }

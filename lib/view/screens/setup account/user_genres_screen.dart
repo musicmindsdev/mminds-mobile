@@ -90,7 +90,7 @@ class _UserGenresScreenState extends State<UserGenresScreen> {
                               "Genres",
                               textAlign: TextAlign.start,
                               style: TextStyle(
-                                fontFamily: "Campton",
+                                fontFamily:  TTexts.campTonFont,
                                 fontSize: 28.spMin,
                                 fontWeight: FontWeight.w600,
                                 color: AppColors.KBlack,
@@ -103,7 +103,7 @@ class _UserGenresScreenState extends State<UserGenresScreen> {
                               maxLines: 1,
                               "Let others know what makes you unique!",
                               style: TextStyle(
-                                fontFamily: "Campton",
+                                fontFamily:  TTexts.campTonFont,
                                 fontWeight: FontWeight.w400,
                                 fontSize: 14.spMin,
                                 color: AppColors.KUserProfileNeutral,
@@ -134,7 +134,7 @@ class _UserGenresScreenState extends State<UserGenresScreen> {
                               ),
                             ),
                             labelStyle: TextStyle(
-                              fontFamily: "Campton",
+                              fontFamily:  TTexts.campTonFont,
                               color: AppColors.KBlue,
                               fontWeight: FontWeight.w500,
                               fontSize: 12.spMin,

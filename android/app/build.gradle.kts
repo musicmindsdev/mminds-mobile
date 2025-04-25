@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.music_minds"
+    namespace = "com.ims.app"
     compileSdk = flutter.compileSdkVersion
 //    ndkVersion = flutter.ndkVersion
     ndkVersion = "28.0.13004108"
@@ -21,7 +21,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.music_minds"
+        applicationId = "com.ims.app"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion

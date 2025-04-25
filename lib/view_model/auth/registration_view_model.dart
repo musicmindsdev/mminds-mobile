@@ -6,12 +6,13 @@ import 'package:music_minds/src/repository.dart';
 import 'package:music_minds/src/utils.dart';
 import 'package:music_minds/view/screens/auth/verify_email_screen.dart';
 
-final registrationViewModel =
-    ChangeNotifierProvider((ref) => RegistrationViewModel());
+final registrationViewModel = ChangeNotifierProvider(
+  (ref) => RegistrationViewModel(),
+);
 
 // Define the provider
 final registrationViewModelProvider = ChangeNotifierProvider.autoDispose(
-      (ref) => RegistrationViewModel(),
+  (ref) => RegistrationViewModel(),
 );
 
 class RegistrationViewModel extends ChangeNotifier {
@@ -69,23 +70,35 @@ class RegistrationViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void toggleCheckerVisibility() {
-    _isChecked = !_isChecked;
-    updateRegisterButtonState();
-    notifyListeners();
-  }
+  // void toggleCheckerVisibility() {
+  //   _isChecked = !_isChecked;
+  //   updateRegisterButtonState();
+  //   notifyListeners();
+  // }
 
   void updateRegisterButtonState() {
-    if (_firstNameController.text.isEmpty || _lastNameController.text.isEmpty||
-        _userNameController.text.isEmpty || _registerEmailController.text.isEmpty || _registerPwdController.text.isEmpty) {
+    if (_firstNameController.text.isEmpty ||
+        _lastNameController.text.isEmpty ||
+        _userNameController.text.isEmpty ||
+        _registerEmailController.text.isEmpty) {
+      logger.w(
+        'firstname: ${_firstNameController.text}, '
+            'lastname: ${_lastNameController.text},'
+            ' username: ${_userNameController.text}, email: ${_registerEmailController.text}',
+      );
       _buttonRegisterState = CustomButtonState(
         buttonState: ButtonState.disabled,
-        text: TTexts.login,
+        text: TTexts.createAccount,
       );
     } else {
+      logger.w(
+        'firstname: ${_firstNameController.text}, '
+            'lastname: ${_lastNameController.text},'
+            ' username: ${_userNameController.text}, email: ${_registerEmailController.text}',
+      );
       _buttonRegisterState = CustomButtonState(
         buttonState: ButtonState.idle,
-        text: TTexts.login,
+        text: TTexts.createAccount,
       );
     }
     notifyListeners();
@@ -104,59 +117,54 @@ class RegistrationViewModel extends ChangeNotifier {
         notifyListeners();
         await authService
             .signUp(
-          email: _registerEmailController.text.trim(),
-          userName: _userNameController.text.trim(),
-          fullName: _fullNameNameController.text.trim(),
-          password: _passwordController.text.trim(),
-        )
+              email: _registerEmailController.text.trim(),
+              userName: _userNameController.text.trim(),
+              fullName:
+                  '${_fullNameNameController.text.trim()} ${_lastNameController.text.trim()}',
+              password: _passwordController.text.trim(),
+            )
             .then((value) async {
-          if (value != null) {
-            // print(value['status'].toString());
-            //   final decodeResponse = jsonDecode(value.toString());
-            final decodeResponse = value;
-            logger.w(decodeResponse);
-            if (value['status'].toString() == 'success') {
+              if (value != null) {
+                // print(value['status'].toString());
+                //   final decodeResponse = jsonDecode(value.toString());
+                final decodeResponse = value;
+                logger.w(decodeResponse);
+                if (value['status'].toString() == 'success') {
+                  _buttonRegisterState = CustomButtonState(
+                    buttonState: ButtonState.idle,
+                    text: TTexts.createAccount,
+                  );
+
+                  showToast(msg: value['message'].toString(), isError: false);
+                  DummyData.emailAddress =
+                      _registerEmailController.text.toString();
+                  isRegisteringUser = false;
+                  // AuthViewModel().userAutoLogin(context,
+                  //     email: _registerEmailController.text,
+                  //     password: registerPwdController.text);
+                  navigatePush(
+                    context,
+                    VerifyEmailScreen(
+                      // title: TTexts.otpVerificationText,
+                      // subTitle: TTexts.sixDigitOtpText,
+                      email: _registerEmailController.text.toString(),
+                      pwd: _registerPwdController.text.toString(),
+                    ),
+                  );
+                  showToast(msg: value['message'].toString(), isError: false);
+                } else {
+                  showToast(msg: value['data'].toString(), isError: true);
+                }
+              }
+            })
+            .whenComplete(() {
               _buttonRegisterState = CustomButtonState(
                 buttonState: ButtonState.idle,
                 text: TTexts.createAccount,
               );
-
-              showToast(
-                msg: value['message'].toString(),
-                isError: false,
-              );
-              DummyData.emailAddress = _registerEmailController.text.toString();
               isRegisteringUser = false;
-              // AuthViewModel().userAutoLogin(context,
-              //     email: _registerEmailController.text,
-              //     password: registerPwdController.text);
-              navigatePush(
-                  context,
-                  VerifyEmailScreen(
-                    // title: TTexts.otpVerificationText,
-                    // subTitle: TTexts.sixDigitOtpText,
-                    email: _registerEmailController.text.toString(),
-                    pwd: _registerPwdController.text.toString(),
-                  ));
-              showToast(
-                msg: value['message'].toString(),
-                isError: false,
-              );
-            } else {
-              showToast(
-                msg: value['data'].toString(),
-                isError: true,
-              );
-            }
-          }
-        }).whenComplete(() {
-          _buttonRegisterState = CustomButtonState(
-            buttonState: ButtonState.idle,
-            text: TTexts.createAccount,
-          );
-          isRegisteringUser = false;
-          notifyListeners();
-        });
+              notifyListeners();
+            });
       } catch (e, s) {
         // showToast(
         //   // msg: somethingWentWrong,

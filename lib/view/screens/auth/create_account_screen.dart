@@ -17,28 +17,11 @@ class CreateAccountScreen extends ConsumerStatefulWidget {
 
 class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
   bool isChecked = false;
-  bool obscurePasswordText = true;
-  bool obscureConfirmPasswordText = true;
-
-  bool? isSelectedRole;
-  String? selectedRole;
-  List<RoleClass>? roles;
   final authService = AuthBackend();
 
   @override
-  void initState() {
-    roles = [
-      RoleClass('Male', false),
-      RoleClass('Female', false),
-
-      // Add more banks here...
-    ];
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    ref.watch(registrationViewModel);
+    var registrationProvider = ref.watch(registrationViewModel);
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -61,7 +44,7 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
                 ),
                 termsAndPolicies(),
                 SizedBox(
-                  height: 190.h,
+                  height: 50.h,
                 ),
                 submitButton(),
                 SizedBox(
@@ -74,9 +57,7 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
         ),
       ),
 
-      // bottomSheet: Padding(
-      //     padding: EdgeInsets.only(bottom: 20.h),
-      //     child: Padding(padding: EdgeInsets.symmetric(horizontal: 20.w), child: submitButton(),)),
+
     );
   }
 
@@ -124,8 +105,9 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
             controller: registrationProvider.firstNameController,
             validators: (value) =>
                 Validators().validateName(value),
-            onChanged: (value) =>
-                registrationProvider.updateRegisterButtonState(),
+            onChanged: (value) {
+              logger.wtf("hello");
+                registrationProvider.updateRegisterButtonState();}
           ),
           CustomTextField(
             fieldLabel: '',
@@ -154,28 +136,6 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
                 Validators().validateEmail(value),
             onChanged: (value) =>
                 registrationProvider.updateRegisterButtonState(),
-          ),
-          CustomTextField(
-            fieldLabel: '',
-            hint: TTexts.password,
-            password: true,
-            controller: registrationProvider.registerPwdController,
-            obscureInput: obscurePasswordText,
-            onObscureText: () {
-              togglePassWordVisibility();
-            },
-          ),
-          CustomTextField(
-            fieldLabel: '',
-            hint:TTexts.confirmPassword,
-            visibleField: true,
-            password: true,
-            controller: registrationProvider.registerConfirmPwdController,
-            obscureInput: obscureConfirmPasswordText,
-            onObscureText: () {
-              toggleConfirmPassWordVisibility();
-            },
-            // useForgotPass: true,
           ),
 
         ],
@@ -303,193 +263,6 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
     );
   }
 
-  //Contains togglePassWordVisibility for password form field widget
-  togglePassWordVisibility() {
-    setState(() {
-      obscurePasswordText = !obscurePasswordText;
-    });
-  }
-
-  toggleConfirmPassWordVisibility() {
-    setState(() {
-      obscureConfirmPasswordText = !obscureConfirmPasswordText;
-    });
-  }
-
-  rolePopUp() async {
-    final deviceW = MediaQuery.of(context).size.width;
-    final deviceH = MediaQuery.of(context).size.height;
-
-    final selectedGenderValue = await showModalBottomSheet<String>(
-        context: context,
-        shape: RoundedRectangleBorder(
-            borderRadius:
-                BorderRadius.vertical(top: Radius.circular(deviceH * 0.04))),
-        isScrollControlled: true,
-        builder: (BuildContext context) {
-          return Container(
-            margin: EdgeInsets.only(
-                left: deviceW * 0.08,
-                right: deviceW * 0.08,
-                bottom: deviceH * 0.01),
-            padding: EdgeInsets.only(top: deviceH * 0.01),
-            height: 280.h,
-            width: deviceW / 1.75,
-            child: SingleChildScrollView(
-              child: Column(
-                //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: deviceH * 0.03,
-                  ),
-
-                  Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-                    GestureDetector(
-                      onTap: () {
-                        navigateBack(context);
-                      },
-                      child: Container(
-                          alignment: Alignment.topRight,
-                          child: Icon(Icons.keyboard_arrow_down_outlined)),
-                    ),
-                  ]),
-
-                  // Text(title, textAlign: TextAlign.center, style: kTitleStyle,),
-                  TextView(
-                    text: "Select role",
-                  ),
-
-                  SizedBox(
-                    height: deviceH * 0.02,
-                  ),
-
-                  Column(
-                    children: [
-                      SizedBox(
-                        height: 150.h,
-                        child: ListView.builder(
-                          itemCount: roles!.length,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding: EdgeInsets.only(bottom: 2.h),
-                              child: MaterialButton(
-                                height: 52.h,
-                                minWidth: double.infinity,
-                                elevation: 0,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12.r)),
-                                color: roles![index].isSelected
-                                    ? AppColors.KBlue
-                                    : null,
-                                onPressed: () {
-                                  _selectRole(index);
-                                  Navigator.of(context).pop(roles![index].role);
-                                },
-                                child: TextView(
-                                  text: roles![index].role,
-                                  fontSize: 14.r,
-                                  color: roles![index].isSelected
-                                      ? Colors.white
-                                      : Colors.white,
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                      )
-                    ],
-                  )
-                ],
-              ),
-            ),
-          );
-        });
-    if (selectedGenderValue != null) {
-      setState(() {
-        selectedRole = selectedGenderValue;
-        // isSelected = true;
-      });
-    }
-  }
-
-  void _selectRole(int index) {
-    setState(() {
-      // Set isSelected property of the selected bank to true
-      roles![index].isSelected = true;
-
-      // Set isSelected property of all other banks to false
-      for (int i = 0; i < roles!.length; i++) {
-        if (i != index) {
-          roles![i].isSelected = false;
-        }
-      }
-    });
-  }
-  String _mapToDisplayValue(String value) {
-    if (value == 'Male') {
-      return 'MALE';
-    }
-    return 'FEMALE';
-  }
 
 }
 
-class MyForm extends StatefulWidget {
-  @override
-  _MyFormState createState() => _MyFormState();
-}
-
-class _MyFormState extends State<MyForm> {
-  TextEditingController _controller = TextEditingController();
-  bool showError = false;
-  String? errorText;
-  FocusNode _focusNode = FocusNode();
-  // Validators get validators =>  _validators;
-  final Validators validators = Validators();
-  @override
-  Widget build(BuildContext context) {
-    final emailRes = validators.validateEmail(_controller.text);
-    return Padding(
-      padding: EdgeInsets.all(20.0),
-      child: Column(
-        children: [
-          TextField(
-            controller: _controller,
-            focusNode: _focusNode,
-            decoration: InputDecoration(
-              labelText: 'Enter text',
-              focusedBorder: OutlineInputBorder(
-                borderSide:
-                    BorderSide(color: showError ? Colors.red : Colors.blue),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.blue),
-              ),
-            ),
-            onChanged: (text) {
-              setState(() {
-                errorText = validators.validateEmail(text);
-                showError = errorText != null;
-              });
-            },
-          ),
-          if (showError && _focusNode.hasFocus)
-            Text(
-              // errorText ?? '',
-              validators.validateEmail(_controller.text) ?? '',
-              style: TextStyle(color: Colors.red),
-            ),
-        ],
-      ),
-    );
-  }
-}
-
-class RoleClass {
-  final String role;
-  // final String code;
-  bool isSelected;
-
-  RoleClass(this.role, this.isSelected);
-}

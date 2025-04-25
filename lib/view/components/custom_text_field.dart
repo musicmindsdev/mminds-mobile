@@ -67,7 +67,7 @@ class CustomTextField extends StatefulWidget {
   final Color? fillColor;
   final Color? borderColor;
   // final FormFieldValidator<String>? validator;
-  final ValueChanged<String>? onChanged;
+  final Function(String?)? onChanged;
   final bool obscureInput;
   final void Function()? onObscureText;
   final double borderRadius;
@@ -152,13 +152,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               enabled: widget.enabled,
               textAlign: widget.textAlign,
               maxLines: widget.maxLines ?? 1,
-              onChanged: (text) {
-                setState(() {
-                  myerrorText =validatorOne.validateEmail(text);
-                  // validateText(text, widget.validators!.validateEmail);
-                  _showError = myerrorText != null;
-                });
-              },
+              onChanged: widget.onChanged,
               obscureText: widget.obscureInput,
               decoration: InputDecoration(
                 border: widget.readOnly ? InputBorder.none : null,

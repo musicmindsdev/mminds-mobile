@@ -30,6 +30,7 @@ class OnboardingViewModel extends ChangeNotifier {
 
       // if (DummyData.firstTimeOnApp == true || DummyData.firstTimeOnApp == null || DummyData.accessToken == null) {
       if (DummyData.firstTimeOnApp == true || DummyData.firstTimeOnApp == null) {
+        if (!context.mounted) return;
         navigateGoRouterReplace(context, AppRouteNames.onboardingScreen);
       } else {
         logger.i("Check User");

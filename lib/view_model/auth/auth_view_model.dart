@@ -2,15 +2,12 @@ import 'dart:developer';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:music_minds/model/response/registration_successful_response_model.dart';
 import 'package:music_minds/routing/app_routing.dart';
 import 'package:music_minds/src/models.dart';
 import 'package:music_minds/src/repository.dart';
 import 'package:music_minds/src/screens.dart';
 import 'package:music_minds/src/utils.dart';
 import 'package:music_minds/view/components/custom_alerts.dart';
-import 'package:music_minds/view/screens/auth/email_verified_success_screen.dart';
-import 'package:music_minds/view/screens/dashboard/dashboard_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final authViewModel = ChangeNotifierProvider((ref) => AuthViewModel());

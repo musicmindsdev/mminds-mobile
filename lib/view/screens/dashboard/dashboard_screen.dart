@@ -38,6 +38,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen>
     return Scaffold(
       body: dashboardPages[dashProvider.currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: ImageView.asset(
@@ -85,11 +86,15 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen>
         type: BottomNavigationBarType.fixed,
         selectedLabelStyle: TextStyle(
           fontSize: 12.spMin,
-         fontFamily: TTexts.campTonFont,
+          fontFamily: TTexts.campTonFont,
           fontWeight: FontWeight.w600,
         ),
         unselectedFontSize: 12.spMin,
-
+        unselectedLabelStyle: TextStyle(
+          fontSize: 12.spMin,
+          fontFamily: TTexts.campTonFont,
+          fontWeight: FontWeight.w500,
+        ),
         currentIndex: dashProvider.currentIndex,
         onTap: (index) {
           dashProvider.setPageIndex(selectedPageIndex: index);

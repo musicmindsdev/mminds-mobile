@@ -169,7 +169,7 @@ class AuthViewModel extends ChangeNotifier {
     _pinCode = value;
     notifyListeners();
 
-    if (_pinCode.length < 4) {
+    if (_pinCode.length < 6) {
       _buttonVerifyState = CustomButtonState(
         buttonState: ButtonState.disabled,
         text: TTexts.login,
@@ -454,21 +454,20 @@ class AuthViewModel extends ChangeNotifier {
                     buttonState: ButtonState.idle,
                     text: TTexts.continueText,
                   );
-                  DummyData.userId = value['data']['userId'];
                   await saveUserEmail(email.toLowerCase());
                   await getUserEmail();
-                  await saveAccessToken(value['data']['verificationToken']);
-                  await getAccessToken();
+                  // await saveAccessToken(value['data']['verificationToken']);
                   // await saveAccessToken(value['data']['access_token'].toString());
                   // await getAccessToken();
-                  // await saveAppTme();
-                  // await saveUserPassword(pwd.toString());
-                  // await getUserPassword();
-                  navigateGoRouterReplace(
+                  await saveAppTme();
+                  await saveUserPassword(pwd.toString());
+                  await getUserPassword();
+                  await navigateGoRouterReplace(
                     context,
-                    AppRouteNames.dashboardScreen,
+                    AppRouteNames.splashScreen,
                   );
                   showToast(msg: value['message'], isError: false);
+
 
                   // Navigator.of(context).pushAndRemoveUntil(
                   //   // the new route

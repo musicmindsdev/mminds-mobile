@@ -16,7 +16,14 @@ class VerifyEmailScreen extends ConsumerStatefulWidget {
   final String? title;
   final String? subTitle;
   final bool? isForgotPassword;
-  const VerifyEmailScreen( {super.key,this.email, this.pwd, this.title, this.subTitle, this.isForgotPassword,});
+  const VerifyEmailScreen({
+    super.key,
+    this.email,
+    this.pwd,
+    this.title,
+    this.subTitle,
+    this.isForgotPassword = false,
+  });
 
   @override
   ConsumerState<VerifyEmailScreen> createState() => _VerifyEmailScreenState();
@@ -37,10 +44,9 @@ class _VerifyEmailScreenState extends ConsumerState<VerifyEmailScreen> {
   void startCountdown() {
     const oneSecond = Duration(seconds: 1);
     _timer = Timer.periodic(oneSecond, (timer) {
-
       if (_secondsRemaining == 0) {
         setState(() {
-          isCountdownStopped= !isCountdownStopped;
+          isCountdownStopped = !isCountdownStopped;
         });
         timer.cancel();
       } else {
@@ -56,9 +62,9 @@ class _VerifyEmailScreenState extends ConsumerState<VerifyEmailScreen> {
     _timer.cancel();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -66,28 +72,23 @@ class _VerifyEmailScreenState extends ConsumerState<VerifyEmailScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 20.h,
-              ),
+              SizedBox(height: 20.h),
               headerTexts(),
-              SizedBox(
-                height: 58.h,
-              ),
+              SizedBox(height: 58.h),
               pinCodeField(),
-              SizedBox(
-                height: 20.h,
-              ),
-              resendWidget()
+              SizedBox(height: 20.h),
+              resendWidget(),
             ],
           ),
         ),
       ),
       bottomSheet: Padding(
-          padding: EdgeInsets.only(bottom: 20.h),
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.w),
-            child: submitButton(),
-          )),
+        padding: EdgeInsets.only(bottom: 20.h),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
+          child: submitButton(),
+        ),
+      ),
     );
   }
 
@@ -96,21 +97,18 @@ class _VerifyEmailScreenState extends ConsumerState<VerifyEmailScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         InkWell(
-            onTap: (){
-              navigateBack(context);
-            },
-            child: const Icon(Icons.arrow_back_ios)),
-        SizedBox(
-          height: 15.h,
+          onTap: () {
+            navigateBack(context);
+          },
+          child: const Icon(Icons.arrow_back_ios),
         ),
+        SizedBox(height: 15.h),
         TextView(
           text: TTexts.verifyEmail,
           fontSize: 28.spMin,
           fontWeight: FontWeight.w600,
         ),
-        SizedBox(
-          height: 6.h,
-        ),
+        SizedBox(height: 6.h),
         TextView(
           text: TTexts.enterCode,
           fontSize: 14.spMin,
@@ -137,14 +135,16 @@ class _VerifyEmailScreenState extends ConsumerState<VerifyEmailScreen> {
           fontWeight: FontWeight.w500,
           color: AppColors.KTextGrey,
         ),
-        SizedBox(
-          width: 10.w,
-        ),
+        SizedBox(width: 10.w),
         Container(
           padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 5.h),
           decoration: BoxDecoration(
-              gradient: isCountdownStopped?AppColors.gradientMain:AppColors.disabledGradient,
-              borderRadius: BorderRadius.circular(4.r)),
+            gradient:
+                isCountdownStopped
+                    ? AppColors.gradientMain
+                    : AppColors.disabledGradient,
+            borderRadius: BorderRadius.circular(4.r),
+          ),
           child: Center(
             child: TextView(
               text: 'Resend in ${_secondsRemaining}s',
@@ -153,7 +153,7 @@ class _VerifyEmailScreenState extends ConsumerState<VerifyEmailScreen> {
               fontWeight: FontWeight.w500,
             ),
           ),
-        )
+        ),
       ],
     );
   }
@@ -170,8 +170,7 @@ class _VerifyEmailScreenState extends ConsumerState<VerifyEmailScreen> {
       cursorColor: AppColors.kAshBlue,
       keyboardType: TextInputType.number,
       animationType: AnimationType.fade,
-      onChanged: (value) =>
-          authProvider.updateVerifyButtonState(value),
+      onChanged: (value) => authProvider.updateVerifyButtonState(value),
       // hintCharacter: '-',
       hintStyle: const TextStyle(
         color: AppColors.kAshBlue,
@@ -179,18 +178,19 @@ class _VerifyEmailScreenState extends ConsumerState<VerifyEmailScreen> {
       ),
 
       pinTheme: PinTheme(
-          shape: PinCodeFieldShape.box,
-          borderRadius: BorderRadius.circular(5.r),
-          fieldHeight: 42.h,
-          fieldWidth: 42.w,
-          activeColor: AppColors.KBlue,
-          activeFillColor: AppColors.kAshBlue,
-          selectedFillColor: AppColors.kAshBlue,
-          disabledColor: AppColors.kAshBlue,
-          inactiveFillColor: AppColors.kAshBlue,
-          inactiveColor: AppColors.KNeutral,
-          selectedColor: AppColors.KNeutral,
-          borderWidth: 0.2.r),
+        shape: PinCodeFieldShape.box,
+        borderRadius: BorderRadius.circular(5.r),
+        fieldHeight: 42.h,
+        fieldWidth: 42.w,
+        activeColor: AppColors.KBlue,
+        activeFillColor: AppColors.kAshBlue,
+        selectedFillColor: AppColors.kAshBlue,
+        disabledColor: AppColors.kAshBlue,
+        inactiveFillColor: AppColors.kAshBlue,
+        inactiveColor: AppColors.KNeutral,
+        selectedColor: AppColors.KNeutral,
+        borderWidth: 0.2.r,
+      ),
       animationDuration: Duration(milliseconds: 300),
     );
   }
@@ -201,11 +201,9 @@ class _VerifyEmailScreenState extends ConsumerState<VerifyEmailScreen> {
       text: 'Next',
       buttonState: authProvider.buttonVerifyState!.buttonState,
       onPressed: () async {
-        // await provider.userConfirmAccount(context);
-        navigatePush(context, EmailVerifySuccessScreen());
+        await authProvider.verifyFPwdEmail(context, email: widget.email!, pwd: widget.pwd!, isForgotPassword: widget.isForgotPassword!);
+        // navigatePush(context, EmailVerifySuccessScreen());
       },
     );
   }
-
-
 }

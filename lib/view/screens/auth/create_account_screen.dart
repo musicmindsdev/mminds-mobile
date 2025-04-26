@@ -38,9 +38,9 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
                 formFields(),
                 SizedBox(height: 12.h),
                 termsAndPolicies(),
-                SizedBox(height: 50.h),
+                SizedBox(height: 35.h),
                 submitButton(),
-                SizedBox(height: 28.h),
+                SizedBox(height: 15.h),
                 alreadyHaveAnAccount(),
               ],
             ),
@@ -182,7 +182,7 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
               style: TextStyle(
                 color: AppColors.KBlue,
                 fontSize: 14.spMin,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w600,
               ),
               recognizer:
                   TapGestureRecognizer()

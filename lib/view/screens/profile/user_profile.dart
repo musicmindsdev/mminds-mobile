@@ -1,11 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:music_minds/src/components.dart';
 import 'package:music_minds/src/config.dart';
 import 'package:music_minds/src/utils.dart';
-import 'package:music_minds/view/components/custom_tab_bar.dart';
 import 'package:music_minds/view/screens/profile/availability_screens/schedule_availability_screen.dart';
 import 'package:music_minds/view/screens/profile/post_feed_screen.dart';
 import 'package:music_minds/view/screens/settings_and_notifications/settings_screen.dart';
+import 'package:music_minds/view/widgets/custom_tab_bar.dart';
 
 class UserProfileScreen extends StatefulWidget {
   const UserProfileScreen({super.key});
@@ -15,11 +14,15 @@ class UserProfileScreen extends StatefulWidget {
 }
 
 class _UserProfileState extends State<UserProfileScreen> {
-  final List<Tab> tabs = [
-    const Tab(text: 'My Feeds'),
-    const Tab(text: 'Schedule'),
-    const Tab(text: 'Reviews'),
+  // final List<Tab> tabs = [
+  //   const Tab(text: 'My Feeds'),
+  //   const Tab(text: 'Schedule'),
+  //   const Tab(text: 'Reviews'),
+  // ];
+  final List<String> tabs = [
+    'My Feeds','Schedule','Reviews'
   ];
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

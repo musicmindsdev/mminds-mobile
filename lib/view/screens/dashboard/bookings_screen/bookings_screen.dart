@@ -1,9 +1,8 @@
 import 'package:music_minds/config/app_assets.dart';
 import 'package:music_minds/src/components.dart';
-import 'package:music_minds/src/screens.dart';
 import 'package:music_minds/src/utils.dart';
-import 'package:music_minds/view/components/custom_tab_bar.dart';
 import 'package:music_minds/view/screens/dashboard/bookings_screen/bookings_details.dart';
+import 'package:music_minds/view/widgets/custom_tab_bar.dart';
 
 class BookingsScreen extends StatefulWidget {
   const BookingsScreen({super.key});
@@ -13,10 +12,14 @@ class BookingsScreen extends StatefulWidget {
 }
 
 class _BookingsScreenState extends State<BookingsScreen> {
-  final List<Tab> tabs = [
-    const Tab(text: 'Confirmed'),
-    const Tab(text: 'Pending'),
-    const Tab(text: 'History'),
+  // final List<Tab> tabs = [
+  //   const Tab(text: 'Confirmed'),
+  //   const Tab(text: 'Pending'),
+  //   const Tab(text: 'History'),
+  // ];
+
+  final List<String> tabs = [
+   'Confirmed','Pending','History'
   ];
   @override
   Widget build(BuildContext context) {
@@ -24,7 +27,7 @@ class _BookingsScreenState extends State<BookingsScreen> {
         length: 3,
         child: Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.transparent,
+            // backgroundColor: Colors.transparent,
             bottom: PreferredSize(
               preferredSize: Size(50, 20.h),
               child: Padding(

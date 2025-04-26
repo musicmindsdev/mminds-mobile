@@ -30,24 +30,24 @@ class CustomTabBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return TabBar(
       indicatorSize: TabBarIndicatorSize.tab,
-      dividerColor: dividerColor ?? AppColors.kPrimary1,
+      dividerColor: dividerColor ?? AppColors.KNeutralFormFieldText,
       dividerHeight: dividerHeight ?? 2.h,
-      labelColor: labelColor ?? AppColors.kPrimary1,
-      unselectedLabelColor: unselectedLabelColor ?? AppColors.kPrimary1,
+      labelColor: labelColor ?? AppColors.KLinearGradient1,
+      unselectedLabelColor: unselectedLabelColor ?? AppColors.KNeutralFormFieldText,
       labelStyle: TextStyle(
-        fontWeight: FontWeight.w700,
+        fontWeight: FontWeight.w600,
         fontSize: fontSize ?? 14.spMin,
         fontFamily: fontFamily ?? TTexts.campTonFont,
-        color: labelColor ?? AppColors.kPrimary1,
+        color: labelColor ?? AppColors.KLinearGradient1,
       ),
       unselectedLabelStyle: TextStyle(
-        fontWeight: FontWeight.w700,
+        fontWeight: FontWeight.w500,
         fontSize: fontSize ?? 14.spMin,
         fontFamily: fontFamily ?? TTexts.campTonFont,
       ),
       indicator: UnderlineTabIndicator(
         borderSide: BorderSide(
-          color: indicatorColor ?? AppColors.kPrimary1,
+          color: indicatorColor ?? AppColors.KLinearGradient1,
           width: indicatorWidth ?? 2.0.w,
         ),
       ),

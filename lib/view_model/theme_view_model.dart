@@ -64,7 +64,7 @@ class ThemeConfig extends ChangeNotifier {
 
   void setStatusBar() {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarBrightness: _themeMode == ThemeMode.light ? Brightness.light : Brightness.dark,
+      // statusBarBrightness: _themeMode == ThemeMode.light ? Brightness.light : Brightness.dark,
       statusBarColor: AppColors.kPrimary1,
       // systemNavigationBarColor: AppColors.kPrimary1
     ));

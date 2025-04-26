@@ -13,6 +13,10 @@ class AppColors {
   static const KFormfieldBlueBorder = Color(0xffE6F0FF);
   static const KFormfieldBlueBorderFocused = Color(0xffE6F0FF);
   static const KErrorPrimary = Color(0xffFF2A1F);
+  static const kGreenToastText= Color(0xff04802E);
+  static const kRedToastText= Color(0xffCB1A14);
+  static const kGreenLight= Color(0xffE7F6EC);
+  static const kRedLight= Color(0xffFBEAE9);
   static const kTransparent = Colors.transparent;
   static const KNeutral = Color(0xffC3C3C3);
 

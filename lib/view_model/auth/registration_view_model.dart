@@ -121,7 +121,7 @@ class RegistrationViewModel extends ChangeNotifier {
               userName: _userNameController.text.trim(),
               fullName:
                   '${_fullNameNameController.text.trim()} ${_lastNameController.text.trim()}',
-              password: _passwordController.text.trim(),
+              password: _registerPwdController.text,
             )
             .then((value) async {
               if (value != null) {

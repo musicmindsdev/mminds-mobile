@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:music_minds/src/config.dart';
 import 'package:music_minds/src/components.dart';
 import 'package:music_minds/utils/validator.dart';
@@ -20,6 +21,7 @@ class CustomTextField extends StatefulWidget {
     this.prefixIcon,
     this.password = false,
     this.trailing,
+    this.inputFormatter,
     this.onTap,
     this.textCapitalization = TextCapitalization.sentences,
     this.textAlign = TextAlign.start,
@@ -32,7 +34,9 @@ class CustomTextField extends StatefulWidget {
     this.onChanged,
     this.obscureInput = false,
     this.onObscureText,
+    this.fontSize,
     this.borderRadius = 8,
+    this.textInputAction,
     this.maxlength,
     this.enabled = true,
     this.useForgotPass = false,
@@ -42,7 +46,7 @@ class CustomTextField extends StatefulWidget {
     this.focusNode,
     this.showError = false,
     this.errorText,
-    this.validators,
+    this.validator,
   });
 
   final String? hint;
@@ -52,6 +56,7 @@ class CustomTextField extends StatefulWidget {
   final TextEditingController? controller;
   final TextInputType? keyboardType;
   final String? initialValue;
+  final TextInputAction? textInputAction;
   final bool readOnly;
   final EdgeInsetsGeometry? padding;
   final Widget? prefixIcon;
@@ -66,6 +71,8 @@ class CustomTextField extends StatefulWidget {
   final bool isFilled;
   final Color? fillColor;
   final Color? borderColor;
+  final double? fontSize;
+  final List<TextInputFormatter>? inputFormatter;
   // final FormFieldValidator<String>? validator;
   final Function(String?)? onChanged;
   final bool obscureInput;
@@ -81,7 +88,7 @@ class CustomTextField extends StatefulWidget {
   final FocusNode? focusNode;
   final bool? showError;
   final String? errorText;
-  final  FormFieldValidator<String>? validators;
+  final FormFieldValidator<String>? validator;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -91,11 +98,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
   // myFocusNode = focusNode;
   @override
   Widget build(BuildContext context) {
-    String? myerrorText;
-    // widget.errorText.toString();
     final myFocusNode = widget.focusNode;
-    var _showError = widget.showError;
-    final Validators validatorOne = Validators();
+
     final theme = Theme.of(context);
     return Visibility(
       visible: widget.visibleField,
@@ -106,43 +110,18 @@ class _CustomTextFieldState extends State<CustomTextField> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /* RichText(
-              text: TextSpan(
-                text: fieldLabel,
-                style: theme.textTheme.labelLarge!.copyWith(
-                  color: AppColors.kPrimaryColor,
-                  fontWeight: FontWeight.w800,
-                  fontSize: 14,
-                  fontFamily: 'Poppins',
-                ),
-                children: <TextSpan>[
-                  TextSpan(
-                    text: labelHint.isNotEmpty ? ' ($labelHint)' : '',
-                    style: theme.textTheme.labelLarge!.copyWith(
-                      color: AppColors.KFormfieldBlueBorder,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 11,
-                      fontFamily: 'Poppins',
-                    ),
-                  ),
-                ],
-              ),
-            ),*/
-
-            // spacer between lable and text field
-            /*SizedBox.square(
-              dimension: spacing ?? 10,
-            ),*/
-
             TextFormField(
+              onChanged: widget.onChanged,
               maxLength: widget.maxlength,
+              inputFormatters: widget.inputFormatter,
               controller: widget.controller,
-              focusNode: myFocusNode,
+              textInputAction: widget.textInputAction,
               style: theme.textTheme.bodyMedium!.copyWith(
                 color: AppColors.kPrimaryColor,
                 fontWeight: FontWeight.w400,
-               fontFamily: TTexts.campTonFont,
-                fontSize: 14.spMin,
+                fontFamily: TTexts.campTonFont,
+                fontSize: widget.fontSize ?? 14.spMin,
+
               ),
               keyboardType: widget.keyboardType,
               initialValue: widget.initialValue,
@@ -152,65 +131,72 @@ class _CustomTextFieldState extends State<CustomTextField> {
               enabled: widget.enabled,
               textAlign: widget.textAlign,
               maxLines: widget.maxLines ?? 1,
-              onChanged: widget.onChanged,
+              validator: widget.validator,
               obscureText: widget.obscureInput,
               decoration: InputDecoration(
                 border: widget.readOnly ? InputBorder.none : null,
                 hintText: widget.hint,
                 hintStyle: theme.textTheme.bodyMedium!.copyWith(
                   color: AppColors.KNeutralFormFieldText,
-                 fontFamily: TTexts.campTonFont,
+                  fontFamily: TTexts.campTonFont,
                   fontSize: 14.spMin,
                 ),
                 prefixIcon: widget.prefixIcon,
-                suffixIcon: widget.textAlign == TextAlign.center
-                    ? null
-                    : Stack(
-                        alignment: AlignmentDirectional.center,
-                        children: [
-                          Visibility(
-                            visible: widget.password!,
-                            child: GestureDetector(
-                              onTap: widget.onObscureText,
-                              child: Container(
-                                height: 40.h,
-                                width: 45.w,
-                                // color: Colors.red,
-                                child: Icon(
-                                  widget.obscureInput
-                                      ? Icons.visibility_off_outlined
-                                      : Icons.visibility_outlined,
-                                  size: 20.r,
-                                  color: AppColors.kPrimaryColor,
+                suffixIcon:
+                    widget.textAlign == TextAlign.center
+                        ? null
+                        : Stack(
+                          alignment: AlignmentDirectional.center,
+                          children: [
+                            Visibility(
+                              visible: widget.password!,
+                              child: GestureDetector(
+                                onTap: widget.onObscureText,
+                                child: Container(
+                                  height: 40.h,
+                                  width: 45.w,
+                                  // color: Colors.red,
+                                  child: Icon(
+                                    widget.obscureInput
+                                        ? Icons.visibility_off_outlined
+                                        : Icons.visibility_outlined,
+                                    size: 20.r,
+                                    color: AppColors.kPrimaryColor,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          Visibility(
-                            visible: widget.trailing != null,
-                            child: widget.trailing ?? const SizedBox(),
-                          ),
-                        ],
-                      ),
-                filled: widget.isFilled,
-                contentPadding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                fillColor: widget.fillColor ?? theme.cardColor,
-                enabledBorder: widget.isFilled
-                    ? OutlineInputBorder(
-                        borderRadius:
-                            BorderRadius.circular(widget.borderRadius),
-                        borderSide: BorderSide(
-                          color: widget.borderColor ??
-                              AppColors.KFormfieldBlueBorder,
+                            Visibility(
+                              visible: widget.trailing != null,
+                              child: widget.trailing ?? const SizedBox(),
+                            ),
+                          ],
                         ),
-                      )
-                    : InputBorder.none,
+                filled: widget.isFilled,
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 8,
+                ),
+                fillColor: widget.fillColor ?? theme.cardColor,
+                enabledBorder:
+                    widget.isFilled
+                        ? OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(
+                            widget.borderRadius,
+                          ),
+                          borderSide: BorderSide(
+                            color:
+                                widget.borderColor ??
+                                AppColors.KFormfieldBlueBorder,
+                          ),
+                        )
+                        : InputBorder.none,
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(widget.borderRadius),
                   borderSide: BorderSide(
-                      color: AppColors.KFormfieldBlueBorderFocused,
-                      width: widget.borderWidth!.sp),
+                    color: AppColors.KFormfieldBlueBorderFocused,
+                    width: widget.borderWidth!.sp,
+                  ),
                 ),
                 errorBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(widget.borderRadius),
@@ -224,6 +210,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 errorMaxLines: 4,
               ),
             ),
+
             // if (myFocusNode.hasFocus)
             //   Text(
             //     // 'Hello',
@@ -231,10 +218,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             //     // widget.validators!.validateEmail(widget.controller!.text) ?? '',
             //     style: TextStyle(color: Colors.red),
             //   ),
-
-            Gap(
-              5.spMin,
-            ),
+            Gap(5.spMin),
 
             Visibility(
               visible: widget.useForgotPass,
@@ -247,7 +231,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     style: theme.textTheme.labelLarge!.copyWith(
                       color: AppColors.kAshBlue,
                       fontWeight: FontWeight.bold,
-                     fontFamily: TTexts.campTonFont,
+                      fontFamily: TTexts.campTonFont,
                       fontSize: 12.spMin,
                     ),
                   ),
@@ -261,7 +245,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
   }
 
   String? validateText(
-      String text, String? Function(String) validationFunction) {
+    String text,
+    String? Function(String) validationFunction,
+  ) {
     return validationFunction(text);
   }
 }
@@ -270,5 +256,3 @@ class _CustomTextFieldState extends State<CustomTextField> {
 ///
 ///
 ///
-
-

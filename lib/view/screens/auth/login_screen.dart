@@ -111,7 +111,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             fieldLabel: '',
             hint: "Email Address or Username",
             controller: authProvider.loginEmailController,
-      
+            validator: (value) => Validators().validateEmail(value),
+            keyboardType: TextInputType.emailAddress,
           ),
       
           CustomTextField(
@@ -123,7 +124,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             onForgotPassTap: () {
               navigatePush(context, const ResetPasswordScreen());
             },
-           validators: (value) =>
+           validator: (value) =>
               Validators().validateEmptyTextField(value),
             onObscureText: authProvider.toggleLoginPwdVisibility,
             visibleField: true,

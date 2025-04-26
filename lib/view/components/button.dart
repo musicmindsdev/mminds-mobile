@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:music_minds/src/components.dart';
 import 'package:music_minds/src/config.dart';
 import 'package:music_minds/src/utils.dart';
+import 'package:loading_indicator/loading_indicator.dart';
+
 
 import 'gradient_text.dart';
 
@@ -156,9 +158,13 @@ class DefaultButtonMain extends StatelessWidget {
             /// widget with the `text` parameter passed in when the function is called. The `textColor`,
             /// `fontSize`, and `fontWeight` parameters are also used to style the text.
             child: (buttonState == ButtonState.loading)
-                ? const SizedBox.square(
-                    dimension: 30,
-                    child: CircularProgressIndicator(color: AppColors.kWhite),
+                ?  SizedBox.square(
+                    dimension: 35.r,
+              child:  LoadingIndicator(
+                indicatorType: Indicator.ballPulse,
+                colors: const [Colors.white],
+                strokeWidth: 3.5.r,
+              ),
                   )
                 : Text(
                     text.toString(),
@@ -273,102 +279,7 @@ class DefaultPinkButtonMain extends StatelessWidget {
   }
 }
 
-// class DefaultImageButtonMain extends StatelessWidget {
-//   const DefaultImageButtonMain({
-//     super.key,
-//     this.onPressed,
-//     this.imagePath,
-//     this.color,
-//     this.textColor,
-//     this.borderRadius,
-//     this.width,
-//     this.height,
-//     this.padding,
-//     this.fontSize,
-//     this.fontWeight,
-//     this.borderColor,
-//     this.buttonState = ButtonState.idle,
-//   });
-//   final VoidCallback? onPressed;
-//   final String? imagePath;
-//   final Color? color;
-//   final Color? textColor;
-//   final double? borderRadius;
-//   final double? width;
-//   final double? height;
-//   final EdgeInsetsGeometry? padding;
-//   final double? fontSize;
-//   final FontWeight? fontWeight;
-//   final Color? borderColor;
-//   final ButtonState buttonState;
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       height: height ?? 47.0.h,
-//       width: width,
-//       padding: padding,
-//       decoration: BoxDecoration(
-//           color:color ,
-//           /// This line of code is setting the background color of the button. It checks the value of the
-//           /// `buttonState` parameter and if it is equal to `ButtonState.disabled`, it sets the color to
-//           /// `AppColors.kDarkGrey`. Otherwise, it sets the color to the value of the `color` parameter,
-//           /// which is passed in when the function is called. If `color` is null, it sets the color to a
-//           /// default value of `const Color(0xFF09132D)`.
-//           // color: (buttonState == ButtonState.disabled)
-//           //     ? AppColors.kPrimary2
-//           //     : color ?? const Color(0xFF09132D),
-//           // gradient: (buttonState == ButtonState.disabled) ?AppColors.disabledGradient:AppColors.gradientMain,
-//           // border: Border.all(color: borderColor ?? Colors.transparent),
-//           borderRadius: BorderRadius.circular(borderRadius ?? 8.0.r),
-//           border: Border.all(color: borderColor!, width: 1.sp)
-//       ),
-//       child: ButtonTheme(
-//         child: MaterialButton(
-//           padding: EdgeInsets.zero,
-//           height: height ?? 47.0.h ,
-//
-//           onPressed:(buttonState == ButtonState.disabled)?null: onPressed,
-//           shape: RoundedRectangleBorder(
-//             borderRadius: BorderRadius.circular(borderRadius ?? 8.0.r), // Adjust the radius as needed
-//           ),
-//           // disabledColor:(buttonState == ButtonState.disabled)?Colors.grey:null,
-//           child: Center(
-//             /// This code is setting the child of the `TextButton` widget. It checks the value of the
-//             /// `buttonState` parameter and if it is equal to `ButtonState.loading`, it sets the child to
-//             /// a `SizedBox` widget with a `CircularProgressIndicator` inside it. This is used to indicate
-//             /// that the button is in a loading state and the user should wait for the action to complete.
-//             /// If `buttonState` is not equal to `ButtonState.loading`, it sets the child to a `Text`
-//             /// widget with the `text` parameter passed in when the function is called. The `textColor`,
-//             /// `fontSize`, and `fontWeight` parameters are also used to style the text.
-//             child: (buttonState == ButtonState.loading)
-//                 ? const SizedBox.square(
-//               dimension: 30,
-//               child: CircularProgressIndicator(color: AppColors.kWhite),
-//             )
-//                 : GradientText(
-//               gradient: const LinearGradient(
-//                 colors: [
-//                   AppColors.KLinearGradient1,
-//                   AppColors.KLinearGradient2,
-//                   AppColors.KLinearGradient3,
-//                 ],
-//               ),
-//               text: text,
-//               style: TextStyle(
-//                 color: textColor ?? Colors.white,
-//                 fontSize: fontSize ?? 14.0.spMin,
-//                 fontWeight: fontWeight ?? FontWeight.w500,
-//                fontFamily: TTexts.campTonFont,
-//               ),
-//             ),
-//           ),
-//         ),
-//       ),
-//
-//     );
-//   }
-// }
+
 
 class DefaultBackButton extends StatelessWidget {
   DefaultBackButton({super.key, required this.onTap});

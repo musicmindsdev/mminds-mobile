@@ -27,14 +27,14 @@ class PassCheckRequirements extends ConsumerWidget {
         padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 2.h), // Add padding
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5.r),
-          border: Border.all(color:passCheck!? AppColors.kPrimary1: theme.colorScheme.secondary.withOpacity(0.2), width: 0.5.r),
+          border: Border.all(color:passCheck!? AppColors.kPurple: theme.colorScheme.secondary.withOpacity(0.2), width: 0.5.r),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min, // Ensure the Row only takes necessary space
           children: [
             Icon(
               passCheck! ? Icons.check_circle_rounded : Icons.check_circle_outline_rounded,
-              color: passCheck! ? AppColors.kPrimary1 : theme.colorScheme.secondary,
+              color: passCheck! ? theme.colorScheme.primary : theme.colorScheme.secondary,
               size: 18.r,
             ),
             SizedBox(width: 2.5.w),

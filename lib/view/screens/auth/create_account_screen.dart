@@ -89,7 +89,7 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
             fieldLabel: '',
             hint: TTexts.firstName,
             controller: registrationProvider.firstNameController,
-            validators: (value) => Validators().validateName(value),
+            validator: (value) => Validators().validateName(value),
             onChanged: (value) {
               logger.wtf("hello");
               registrationProvider.updateRegisterButtonState();
@@ -98,7 +98,7 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
           CustomTextField(
             fieldLabel: '',
             hint: TTexts.lastName,
-            validators: (value) => Validators().validateName(value),
+            validator: (value) => Validators().validateName(value),
             controller: registrationProvider.lastNameController,
             onChanged:
                 (value) => registrationProvider.updateRegisterButtonState(),
@@ -108,7 +108,7 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
             fieldLabel: '',
             hint: TTexts.userName,
             controller: registrationProvider.userNameController,
-            validators: (value) => Validators().validateEmptyField(value),
+            validator: (value) => Validators().validateEmptyField(value),
             onChanged:
                 (value) => registrationProvider.updateRegisterButtonState(),
           ),
@@ -116,28 +116,35 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
             fieldLabel: '',
             hint: TTexts.emailAddress,
             controller: registrationProvider.registerEmailController,
-            validators: (value) => Validators().validateEmail(value),
+            validator: (value) => Validators().validateEmail(value),
             onChanged:
                 (value) => registrationProvider.updateRegisterButtonState(),
           ),
-          PasswordValidatedFields(
-            textEditingController: registrationProvider.registerPwdController,
 
+
+          PasswordValidatedFields(
+            textEditingController:
+            registrationProvider.registerPwdController,
             obscureInput: registrationProvider.obscurePasswordText,
             confirmPasswordWidget: CustomTextField(
               fieldLabel: TTexts.confirmPassword,
               hint: TTexts.confirmPassword,
-              controller: registrationProvider.registerConfirmPwdController,
+              controller:
+              registrationProvider.registerConfirmPwdController,
               password: true,
-              validators:
-                  (value) => Validators().validateConfirmPassword(
+              validator: (value) =>
+                  Validators().validateConfirmPassword(
                     registrationProvider.registerPwdController.text,
-                    registrationProvider.registerConfirmPwdController.text,
+                    registrationProvider
+                        .registerConfirmPwdController.text,
                   ),
-              obscureInput: registrationProvider.obscureConfirmPwdText,
-              onObscureText: registrationProvider.toggleConfirmPwdVisibility,
+              obscureInput:
+              registrationProvider.obscureConfirmPwdText,
+              onObscureText:
+              registrationProvider.toggleConfirmPwdVisibility,
             ),
             onObscureText: registrationProvider.togglePwdVisibility,
+
             fieldLabel: TTexts.password,
           ),
         ],
@@ -151,7 +158,9 @@ class _CreateAccountScreenState extends ConsumerState<CreateAccountScreen> {
     return DefaultButtonMain(
       text: TTexts.createAccount,
       buttonState: registrationProvider.buttonRegisterState!.buttonState,
-      onPressed: () async {},
+      onPressed: () async {
+        registrationProvider.userRegistration(context);
+      },
     );
   }
 

@@ -1,9 +1,7 @@
-import 'package:music_minds/src/components.dart';
-import 'package:music_minds/view_model/theme_view_model.dart';
-import 'package:flutter/material.dart';
-import 'package:music_minds/src/config.dart';
-import 'package:music_minds/view/components/custom_password/requirements_widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:music_minds/src/components.dart';
+import 'package:music_minds/view/components/custom_password/requirements_widgets.dart';
+import 'package:music_minds/view_model/theme_view_model.dart';
 
 class PasswordValidatedFields extends ConsumerStatefulWidget {
   /// Constructor

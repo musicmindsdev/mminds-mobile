@@ -27,8 +27,8 @@ class AuthBackend extends ApiService {
       body: {
         "fullName": fullName,
         "username": userName,
-        "role": "user",
-        "username": userName,
+        "email": email,
+        "password": password,
       },
     );
   }

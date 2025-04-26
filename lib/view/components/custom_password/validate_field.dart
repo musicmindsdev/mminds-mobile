@@ -134,6 +134,7 @@ class PasswordValidatedFieldsState
                 color: AppColors.kPrimaryColor,
                 fontWeight: FontWeight.w400,
                 fontSize: 14.spMin,
+                fontFamily: TTexts.campTonFont,
               ),
               decoration: InputDecoration(
                 border: widget.readOnly ? InputBorder.none : null,
